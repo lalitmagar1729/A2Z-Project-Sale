@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>404 - Page Not Found</title>
+  <!-- Bootstrap 5 CSS + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+    rel="stylesheet">
+  <!-- Shared theme stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* ----- 404 PAGE ENHANCEMENTS — uses global CSS variables from style.css ----- */
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background: linear-gradient(145deg, var(--bg-light) 0%, var(--gray-bg) 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    /* main card-like container: subtle glass / soft shadow */
+    .error-container {
+      max-width: 640px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 2rem;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.15), 0 2px 5px -2px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      padding: 2rem 2rem 2.5rem;
+    }
+
+    .error-container:hover {
+      box-shadow: 0 30px 55px -15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* large 404 number with brand-blue gradient text */
+    .error-code {
+      font-size: clamp(6rem, 18vw, 11rem);
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--primary-dark));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .friendly-heading {
+      font-weight: 700;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .description-text {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+
+    /* primary action button — uses brand primary color */
+    .btn-home {
+      background-color: var(--primary);
+      border: none;
+      padding: 0.7rem 1.8rem;
+      font-weight: 500;
+      border-radius: 60px;
+      transition: all 0.25s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-home:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px -12px rgba(42, 78, 119, 0.3);
+    }
+
+    .btn-home:active {
+      transform: translateY(1px);
+    }
+
+    /* search bar styling */
+    .search-input-group {
+      border-radius: 60px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.2s;
+    }
+
+    .search-input-group:focus-within {
+      box-shadow: 0 0 0 3px rgba(42, 78, 119, 0.15), 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-control.search-input {
+      border: 1px solid var(--border-light);
+      border-right: none;
+      padding: 0.7rem 1.2rem;
+      font-size: 0.95rem;
+      background: var(--bg-white);
+      font-weight: 400;
+    }
+
+    .form-control.search-input:focus {
+      border-color: var(--border-focus);
+      box-shadow: none;
+      outline: none;
+    }
+
+    .btn-search {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-left: none;
+      color: var(--text-dark);
+      padding: 0.7rem 1.4rem;
+      transition: background 0.2s, color 0.2s;
+      font-weight: 500;
+    }
+
+    .btn-search:hover {
+      background-color: var(--gray-bg);
+      color: var(--primary-dark);
+    }
+
+    /* decorative separator */
+    .separator-light {
+      width: 70px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--border-focus), var(--text-light), var(--border-focus));
+      border-radius: 4px;
+      margin: 1rem auto 1.2rem auto;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 576px) {
+      .error-container {
+        padding: 1.75rem 1.5rem 2rem;
+      }
+
+      .description-text {
+        font-size: 0.95rem;
+      }
+
+      .btn-home,
+      .btn-search {
+        font-size: 0.9rem;
+        padding: 0.55rem 1.3rem;
+      }
+
+      .form-control.search-input {
+        padding: 0.55rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* accessibility & focus states */
+    .btn:focus-visible,
+    .form-control:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MAIN 404 SECTION: centered using Bootstrap flex utilities + custom container -->
+  <div class="error-container text-center">
+
+    <!-- Large 404 error number (focal point) -->
+    <div class="error-code">404</div>
+
+    <!-- Friendly "Page Not Found / Oops!" message with modern typography -->
+    <h1 class="friendly-heading mt-2">
+      <i class="bi bi-emoji-frown me-2" style="font-size: 1.8rem; color: #475569;"></i>
+      Oops! Page not found
+    </h1>
+
+    <!-- Subtle decorative element (optional, adds minimal modern elegance) -->
+    <div class="separator-light"></div>
+
+    <!-- Brief helpful description explaining why the page is missing -->
+    <p class="description-text mb-4">
+      The page you are looking for might have been moved, deleted, or perhaps it never existed.
+      Don't worry — let's get you back on track.
+    </p>
+
+    <!-- NAVIGATION ELEMENTS: Back to Home button (primary action) + optional search bar -->
+    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-4">
+      <!-- "Back to Home" button with home icon, linking to homepage (root '/') -->
+      <a href="/" class="btn btn-home text-white d-inline-flex align-items-center justify-content-center gap-2">
+        <i class="bi bi-house-door-fill"></i> Back to Home
+      </a>
+
+      <!-- Optional second CTA: Contact support or sitemap? but we keep minimal, 
+           but a subtle ghost button adds flexibility, not required, but improves UX -->
+      <a href="#" class="btn btn-outline-secondary rounded-pill px-4 d-inline-flex align-items-center gap-2"
+        style="border-color: var(--border-focus); color: var(--text-muted);" id="reportLink">
+        <i class="bi bi-envelope"></i> Report issue
+      </a>
+    </div>
+
+    <!-- OPTIONAL SEARCH BAR: help users find content without leaving the error page -->
+   
+
+    <!-- Additional helper links: sitemap & contact (subtle, modern footer) -->
+    <div class="mt-5 pt-2 border-top border-light d-flex flex-wrap justify-content-center gap-3 gap-md-4">
+      <a href="/" class="text-decoration-none small link-secondary d-inline-flex align-items-center gap-1">
+        <i class="bi bi-grid-3x3-gap-fill"></i> Sitemap
+      </a>
+      <a href="#" class="text-decoration-none small link-secondary d-inline-flex align-items-center gap-1"
+        id="contactSupport">
+        <i class="bi bi-chat-dots"></i> Contact Support
+      </a>
+      <a href="#" class="text-decoration-none small link-secondary d-inline-flex align-items-center gap-1"
+        id="helpCenterLink">
+        <i class="bi bi-question-circle"></i> Help Center
+      </a>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle (optional for interactivity, not mandatory for design, but used for minor demo) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <!-- Custom lightweight JavaScript for search simulation and demo interactivity (modern UX) 
+       This does not affect core design but adds functionality to the search bar. -->
+  <script>
+    // Helper function to simulate a site search (non-intrusive, user-friendly)
+    // In real-world implementation, replace with your actual search endpoint or redirect to search results page.
+    function handleSearch(event) {
+      event.preventDefault();
+      const searchInput = document.getElementById('searchQuery');
+      const query = searchInput.value.trim();
+
+      if (query === "") {
+        // subtle feedback: modern and friendly
+        const searchGroup = document.querySelector('.search-input-group');
+        const originalBorder = searchGroup.style.boxShadow;
+        searchGroup.style.boxShadow = '0 0 0 2px rgba(220, 53, 69, 0.3)';
+        setTimeout(() => {
+          searchGroup.style.boxShadow = originalBorder;
+        }, 800);
+        // Optional alert replacement: display a floating non-obtrusive message (bootstrap toast could be used, but simple alert is fine for demo)
+        alert("✨ Please enter a search term to find what you're looking for.");
+        return;
+      }
+
+      // Simulate redirect to a search results page (replace with actual search URL)
+      // Example: if your site has search endpoint "/search?q=", uncomment next line.
+      // window.location.href = `/search?q=${encodeURIComponent(query)}`;
+
+      // For demo purposes we show a friendly message and redirect to google custom search simulation? 
+      // Better: show informative message that you can integrate search later.
+      // We'll display a modern info alert using Bootstrap alert? But better just console + confirm style.
+      // Since it's a 404 page, we just demonstrate search action.
+      const message = `🔍 Searching for "${query}"...\n\nIn a real project, this would redirect to your site's search results page. You can integrate /search?q= parameter.`;
+      alert(message);
+      // Optionally redirect to homepage with query parameter (dummy)
+      // window.location.href = "/?search=" + encodeURIComponent(query); // optional fallback
+
+      // For demonstration, we also clear the field? not necessary, but UX.
+      // we keep the query for clarity.
+    }
+
+    // Additional lightweight interactions: log click on report, contact, help center (just for demonstration)
+    const reportBtn = document.getElementById('reportLink');
+    if (reportBtn) {
+      reportBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("📧 Our support team is ready to help. Please email support@example.com or check our help center.\n\n(404 page mockup - integrate your support form)");
+      });
+    }
+
+    const contactSupport = document.getElementById('contactSupport');
+    if (contactSupport) {
+      contactSupport.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("💬 Contact support: You can reach us via live chat or email help@example.com. We'll guide you back on track.");
+      });
+    }
+
+    const helpCenter = document.getElementById('helpCenterLink');
+    if (helpCenter) {
+      helpCenter.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("📖 Help Center: Check our documentation, FAQs, or use the search bar above to find resources.");
+      });
+    }
+
+    // Optional: Simulate live dynamic search placeholder example (just adds charm)
+    const searchField = document.getElementById('searchQuery');
+    if (searchField) {
+      const placeholders = ["Search 'getting started'", "Try 'pricing'", "Find 'contact'", "Search blog..."];
+      let idx = 0;
+      setInterval(() => {
+        if (document.activeElement !== searchField) {
+          idx = (idx + 1) % placeholders.length;
+          searchField.placeholder = placeholders[idx];
+        }
+      }, 3000);
+    }
+  </script>
+</body>
+
+</html>

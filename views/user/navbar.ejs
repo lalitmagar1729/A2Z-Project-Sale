@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProjectMarket | Premium Projects</title>
+
+  <!-- Bootstrap 5 CSS + Icons + Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <!-- Premium Navbar Component -->
+  <nav class="premium-navbar">
+    <div class="container py-2 py-lg-0">
+      <div class="row align-items-center g-3">
+        <!-- Logo Column -->
+        <div class="col-12 col-md-auto text-center text-md-start">
+          <div class="logo-brand" onclick="handleNavigation('home-page.html')">
+            <h1>ProjectMarket</h1>
+            <span class="logo-tagline">premium projects</span>
+          </div>
+        </div>
+
+        <!-- Search Bar Column -->
+        <!-- <div class="col-12 col-md">
+                <div class="premium-search d-flex align-items-center">
+                    <input type="text" class="form-control" id="navSearchInput" 
+                           placeholder="Search AI, Web, Blockchain, UI/UX...">
+                    <button class="search-btn" onclick="showPremiumToast('🔍 Search feature — full implementation coming soon')">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div> -->
+
+        <!-- Navigation Links Column -->
+        <div class="col-12 col-md-auto">
+          <div class="d-flex flex-wrap justify-content-center justify-content-md-end gap-3 gap-lg-4">
+            <a href="/" class="nav-link-custom">
+              <i class="fas fa-home"></i>
+              <span>Home</span>
+            </a>
+
+            <a href="/about" class="nav-link-custom">
+              <i class="fas fa-info-circle"></i>
+              <span>About</span>
+            </a>
+
+            <a href="/projectlist" class="nav-link-custom">
+              <i class="fas fa-code-branch"></i>
+              <span>Projects</span>
+            </a>
+
+            <a href="/contact" class="nav-link-custom">
+              <i class="fas fa-envelope"></i>
+              <span>Contact</span>
+            </a>
+
+            <div class="nav-icon-wrapper" onclick="showPremiumToast('🔐 Login / Signup modal — coming in Q2')">
+              <div class="nav-link-custom">
+                <i class="fas fa-user-circle"></i>
+                <span>Account</span>
+              </div>
+            </div>
+
+            <div class="nav-icon-wrapper" onclick="showPremiumToast('❤️ Wishlist — save your favorite projects')">
+              <div class="nav-link-custom">
+                <i class="fas fa-heart"></i>
+                <span>Wishlist</span>
+                <span class="badge-premium wishlist-count" id="wishlistBadge">0</span>
+              </div>
+            </div>
+
+            <div class="nav-icon-wrapper" onclick="showPremiumToast('🛒 Cart sidebar — checkout experience enhanced')">
+              <div class="nav-link-custom">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Cart</span>
+                <span class="badge-premium cart-count" id="cartBadge">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Bootstrap Toast Container (Premium Position) -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+    <div id="premiumLiveToast" class="toast toast-premium" role="alert" aria-live="assertive" aria-atomic="true"
+      data-bs-autohide="true" data-bs-delay="3000">
+      <div class="toast-header toast-premium">
+        <i class="fas fa-check-circle me-2" style="color: var(--accent);"></i>
+        <strong class="me-auto">CodeCanvas</strong>
+        <small>Just now</small>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body" id="toastMessage">
+        Welcome to CodeCanvas premium experience!
+      </div>
+    </div>
+  </div>
