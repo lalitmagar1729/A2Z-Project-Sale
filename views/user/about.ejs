@@ -164,23 +164,7 @@
 </head>
 <body>
 
-<!-- ========================== HERO SECTION (simple modern) ========================== -->
-<section class="pt-5 pb-4 bg-white border-bottom" style="background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFE 100%);">
-  <div class="container py-3 py-md-4">
-    <div class="row align-items-center g-4">
-      <div class="col-lg-8 mx-auto text-center">
-        <!-- subtle badge -->
-        <span class="badge bg-light text-primary px-3 py-2 rounded-pill mb-3 border" style="background:#eef2f9;"><i class="bi bi-mortarboard-fill me-1 text-accent"></i> trusted by 1500+ students</span>
-        <h1 class="display-5 fw-bold" style="color: var(--primary-dark);">Empowering students with <span class="text-accent">ready‑to‑run</span> academic projects</h1>
-        <p class="lead text-muted mt-3 mx-auto" style="max-width: 700px;">High-quality, tested project solutions across all major technologies. Save time, boost grades, and build your portfolio with confidence.</p>
-        <div class="mt-4">
-          <a href="#" class="btn btn-primary px-4 py-2 me-2" style="background: var(--primary); border-color: var(--primary);">Browse Projects <i class="bi bi-arrow-right-short"></i></a>
-          <a href="#" class="btn btn-outline-accent px-4 py-2">How it works</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- ========================== 2. ABOUT DESCRIPTION SECTION (Text + Image) ========================== -->
 <section class="py-5 py-md-6 bg-white">
@@ -201,10 +185,8 @@
       <!-- Right side: placeholder image (student working on laptop) -->
       <div class="col-lg-6 order-1 order-lg-2">
         <div class="position-relative">
-          <img src="https://placehold.co/700x500/2A4E77/FFFFFF?text=Student+Working+on+Laptop+%7C+Modern+Study+Space" alt="Student working on laptop" class="img-fluid img-cover-soft shadow">
-          <div class="position-absolute bottom-0 start-0 bg-white rounded-3 px-3 py-2 m-3 shadow-sm" style="border-left: 4px solid var(--accent);">
-            <i class="bi bi-star-fill text-warning"></i> <span class="fw-semibold">4.9/5 from 1200+ reviews</span>
-          </div>
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Student working on laptop" class="img-fluid img-cover-soft shadow">
+          
         </div>
       </div>
     </div>
@@ -273,7 +255,7 @@
           <div class="icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--accent);"><i class="bi bi-play-circle-fill fs-2"></i></div>
           <h4 class="h5 fw-bold">Running & Quality Code</h4>
           <p class="text-muted mt-2">Every project is tested on real environments. You get error-free, fully executable source code with setup guides.</p>
-          <span class="badge bg-light mt-2 text-primary">✅ Pre-verified</span>
+          <!-- <span class="badge bg-light mt-2 text-primary">✅ Pre-verified</span> -->
         </div>
       </div>
       <!-- Card 2: Secure Instant Delivery -->
@@ -282,7 +264,7 @@
           <div class="icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--accent);"><i class="bi bi-lock-fill fs-2"></i></div>
           <h4 class="h5 fw-bold">Secure Instant Delivery</h4>
           <p class="text-muted mt-2">Encrypted payment + immediate download link after purchase. Your data is protected 24/7.</p>
-          <span class="badge bg-light mt-2 text-primary"><i class="bi bi-shield-check"></i> PCI compliant</span>
+          <!-- <span class="badge bg-light mt-2 text-primary"><i class="bi bi-shield-check"></i> PCI compliant</span> -->
         </div>
       </div>
       <!-- Card 3: Multiple Technologies Integration -->
@@ -291,7 +273,7 @@
           <div class="icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--accent);"><i class="bi bi-diagram-3-fill fs-2"></i></div>
           <h4 class="h5 fw-bold">Multiple Technologies</h4>
           <p class="text-muted mt-2">Python (Django/Flask), Java Spring, React, Angular, Android, Flutter, and AI/ML projects.</p>
-          <span class="badge bg-light mt-2 text-primary">50+ stacks</span>
+          <!-- <span class="badge bg-light mt-2 text-primary">50+ stacks</span> -->
         </div>
       </div>
       <!-- Card 4: 24/7 Service Available -->
@@ -300,7 +282,7 @@
           <div class="icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--accent);"><i class="bi bi-headset fs-2"></i></div>
           <h4 class="h5 fw-bold">24/7 Service Available</h4>
           <p class="text-muted mt-2">Round-the-clock chat & email support. Our academic experts resolve queries within hours.</p>
-          <span class="badge bg-light mt-2 text-primary">💬 Real humans</span>
+          <!-- <span class="badge bg-light mt-2 text-primary">💬 Real humans</span> -->
         </div>
       </div>
     </div>
@@ -308,79 +290,639 @@
 </section>
 
 <!-- ========================== 5. TESTIMONIALS SECTION (3 student reviews) ========================== -->
-<section class="py-5 bg-light" style="background: var(--bg-light);">
+<!-- ========================== 5. TESTIMONIALS SECTION WITH MODERATE SIZED SLIDER ========================== -->
+<section class="py-5 bg-light" style="background: var(--bg-light); overflow: hidden;">
   <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="section-title text-center" style="display: inline-block;">Student love</h2>
-      <p class="text-muted">Hear from students who transformed their academic journey</p>
+    <div class="text-center mb-4">
+      <h2 class="section-title text-center" style="display: inline-block; font-size: 1.8rem;">Trusted By Students</h2>
+      <p class="text-muted" style="font-size: 0.9rem;">Hear from students who transformed their academic journey</p>
     </div>
-    <div class="row g-4">
-      <!-- Testimonial 1 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="testimonial-card p-4 h-100">
-          <div class="d-flex align-items-center gap-2 mb-3">
-            <div class="rating-star">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+
+    <!-- Professional Testimonial Slider - Moderate Size -->
+    <div class="testimonial-slider-wrapper">
+      <div class="testimonial-slider-container">
+        <div class="testimonial-slider" id="testimonialSlider">
+          
+          <!-- Slide 1 - Priya Sharma -->
+          <div class="testimonial-slide">
+            <div class="testimonial-single-card">
+              <div class="quote-icon">
+                <i class="bi bi-quote"></i>
+              </div>
+              <p class="testimonial-text">“I bought a Django e-commerce project for my final year, and it worked right out of the box. The documentation was so clear that I could customize the frontend easily. Highly recommended!”</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <i class="bi bi-person-circle"></i>
+                </div>
+                <div class="author-info">
+                  <h6 class="mb-0 fw-bold">Priya Sharma</h6>
+                  <small class="text-muted">B.Tech CSE, VIT University</small>
+                </div>
+              </div>
+              <div class="rating-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
             </div>
-            <span class="text-muted small">5.0</span>
           </div>
-          <p class="fs-6 text-secondary">“I bought a Django e-commerce project for my final year, and it worked right out of the box. The documentation was so clear that I could customize the frontend easily. Highly recommended!”</p>
-          <hr class="my-3">
-          <div class="d-flex align-items-center">
-            <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style="width: 44px; height:44px;"><i class="bi bi-person-circle fs-3 text-primary"></i></div>
-            <div class="ms-3">
-              <h6 class="mb-0 fw-bold">Priya Sharma</h6>
-              <small class="text-muted">B.Tech CSE, VIT University</small>
+
+          <!-- Slide 2 - Rahul Mehta -->
+          <div class="testimonial-slide">
+            <div class="testimonial-single-card">
+              <div class="quote-icon">
+                <i class="bi bi-quote"></i>
+              </div>
+              <p class="testimonial-text">“The instant delivery saved my submission deadline. I needed a Java Spring Boot project with MySQL, and it worked perfectly. The 24/7 support team helped me with deployment. Great service!”</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <i class="bi bi-person-circle"></i>
+                </div>
+                <div class="author-info">
+                  <h6 class="mb-0 fw-bold">Rahul Mehta</h6>
+                  <small class="text-muted">MCA, Pune University</small>
+                </div>
+              </div>
+              <div class="rating-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+              </div>
             </div>
           </div>
+
+          <!-- Slide 3 - Neha Verma -->
+          <div class="testimonial-slide">
+            <div class="testimonial-single-card">
+              <div class="quote-icon">
+                <i class="bi bi-quote"></i>
+              </div>
+              <p class="testimonial-text">“As an AI student, I needed a computer vision project (YOLO) with Flask integration. ProjectMarket provided a fully functional code, and the setup guide was a lifesaver. Got an A+ grade!”</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <i class="bi bi-person-circle"></i>
+                </div>
+                <div class="author-info">
+                  <h6 class="mb-0 fw-bold">Neha Verma</h6>
+                  <small class="text-muted">M.Sc Data Science, Christ University</small>
+                </div>
+              </div>
+              <div class="rating-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 - Amit Kumar -->
+          <div class="testimonial-slide">
+            <div class="testimonial-single-card">
+              <div class="quote-icon">
+                <i class="bi bi-quote"></i>
+              </div>
+              <p class="testimonial-text">“The React.js dashboard project I purchased was top-notch. Clean code, proper folder structure, and responsive design. Saved me 2 months of development time. Worth every penny!”</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <i class="bi bi-person-circle"></i>
+                </div>
+                <div class="author-info">
+                  <h6 class="mb-0 fw-bold">Amit Kumar</h6>
+                  <small class="text-muted">B.Sc IT, Mumbai University</small>
+                </div>
+              </div>
+              <div class="rating-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 - Sneha Patil -->
+          <div class="testimonial-slide">
+            <div class="testimonial-single-card">
+              <div class="quote-icon">
+                <i class="bi bi-quote"></i>
+              </div>
+              <p class="testimonial-text">“Excellent quality projects with detailed documentation. The source code was well-commented and easy to understand. Will definitely purchase again for my next semester project.”</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <i class="bi bi-person-circle"></i>
+                </div>
+                <div class="author-info">
+                  <h6 class="mb-0 fw-bold">Sneha Patil</h6>
+                  <small class="text-muted">BE Computer, SPIT</small>
+                </div>
+              </div>
+              <div class="rating-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </div>
-      <!-- Testimonial 2 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="testimonial-card p-4 h-100">
-          <div class="d-flex align-items-center gap-2 mb-3">
-            <div class="rating-star">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
-            </div>
-            <span class="text-muted small">4.8</span>
-          </div>
-          <p class="fs-6 text-secondary">“The instant delivery saved my submission deadline. I needed a Java Spring Boot project with MySQL, and it worked perfectly. The 24/7 support team helped me with deployment. Great service!”</p>
-          <hr class="my-3">
-          <div class="d-flex align-items-center">
-            <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style="width: 44px; height:44px;"><i class="bi bi-person-circle fs-3 text-primary"></i></div>
-            <div class="ms-3">
-              <h6 class="mb-0 fw-bold">Rahul Mehta</h6>
-              <small class="text-muted">MCA, Pune University</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Testimonial 3 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="testimonial-card p-4 h-100">
-          <div class="d-flex align-items-center gap-2 mb-3">
-            <div class="rating-star">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <span class="text-muted small">5.0</span>
-          </div>
-          <p class="fs-6 text-secondary">“As an AI student, I needed a computer vision project (YOLO) with Flask integration. ProjectMarket provided a fully functional code, and the setup guide was a lifesaver. Got an A+ grade!”</p>
-          <hr class="my-3">
-          <div class="d-flex align-items-center">
-            <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style="width: 44px; height:44px;"><i class="bi bi-person-circle fs-3 text-primary"></i></div>
-            <div class="ms-3">
-              <h6 class="mb-0 fw-bold">Neha Verma</h6>
-              <small class="text-muted">M.Sc Data Science, Christ University</small>
-            </div>
-          </div>
+
+        <!-- Navigation Buttons -->
+        <button class="slider-nav prev-nav" id="prevSlide">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <button class="slider-nav next-nav" id="nextSlide">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+
+        <!-- Dots Indicator -->
+        <div class="slider-dots" id="sliderDots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
         </div>
       </div>
     </div>
-    <div class="text-center mt-5">
-      <a href="#" class="btn btn-outline-accent rounded-pill px-4"><i class="bi bi-chat-quote me-2"></i>Read more stories</a>
+
+    <div class="text-center mt-4">
+      <a href="#" class="btn btn-outline-accent rounded-pill px-4" style="font-size: 0.85rem;"><i class="bi bi-chat-quote me-2"></i>Read more stories</a>
     </div>
   </div>
 </section>
+
+<style>
+  /* ============================================ */
+  /* MODERATE SIZED TESTIMONIAL SLIDER CSS       */
+  /* BALANCED - NOT TOO BIG, NOT TOO SMALL       */
+  /* ============================================ */
+
+  .testimonial-slider-wrapper {
+    position: relative;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 45px;
+  }
+
+  .testimonial-slider-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+
+  .testimonial-slider {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: grab;
+  }
+
+  .testimonial-slider:active {
+    cursor: grabbing;
+  }
+
+  .testimonial-slide {
+    flex: 0 0 100%;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  /* Moderate Card Size */
+  .testimonial-single-card {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFF 100%);
+    border-radius: 24px;
+    padding: 1.8rem;
+    text-align: center;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(107, 140, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial-single-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #6B8CFF, #A5B9FF, #6B8CFF);
+  }
+
+  .testimonial-single-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Quote Icon - Smaller */
+  .quote-icon {
+    margin-bottom: 1rem;
+  }
+
+  .quote-icon i {
+    font-size: 2rem;
+    color: #6B8CFF;
+    opacity: 0.4;
+    font-family: 'Georgia', serif;
+  }
+
+  /* Testimonial Text - Moderate */
+  .testimonial-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #2C3E50;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    max-height: 100px;
+    overflow-y: auto;
+  }
+
+  /* Custom scrollbar for text */
+  .testimonial-text::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .testimonial-text::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .testimonial-text::-webkit-scrollbar-thumb {
+    background: #6B8CFF;
+    border-radius: 10px;
+  }
+
+  /* Author Section - Compact */
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 0.75rem;
+  }
+
+  .author-avatar i {
+    font-size: 2.2rem;
+    color: #6B8CFF;
+    background: rgba(107, 140, 255, 0.1);
+    border-radius: 50%;
+  }
+
+  .author-info h6 {
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+    color: #1a2a4a;
+  }
+
+  .author-info small {
+    font-size: 0.7rem;
+    color: #6c757d;
+  }
+
+  /* Rating Stars - Smaller */
+  .rating-stars {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 0.25rem;
+  }
+
+  .rating-stars i {
+    color: #FFB800;
+    font-size: 0.85rem;
+  }
+
+  /* Navigation Buttons - Moderate */
+  .slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid rgba(107, 140, 255, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  .slider-nav i {
+    font-size: 1.2rem;
+    color: #3D5AFE;
+  }
+
+  .slider-nav:hover {
+    background: linear-gradient(135deg, #6B8CFF, #3D5AFE);
+    border-color: transparent;
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  .slider-nav:hover i {
+    color: white;
+  }
+
+  .prev-nav {
+    left: -15px;
+  }
+
+  .next-nav {
+    right: -15px;
+  }
+
+  /* Dots Indicator - Smaller */
+  .slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #CBD5E1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .dot:hover {
+    background: #6B8CFF;
+    transform: scale(1.2);
+  }
+
+  .dot.active {
+    width: 24px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #6B8CFF, #3D5AFE);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .testimonial-slider-wrapper {
+      max-width: 550px;
+      padding: 0 35px;
+    }
+    
+    .testimonial-single-card {
+      padding: 1.4rem;
+    }
+    
+    .testimonial-text {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      max-height: 85px;
+    }
+    
+    .slider-nav {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .slider-nav i {
+      font-size: 1rem;
+    }
+    
+    .prev-nav {
+      left: -10px;
+    }
+    
+    .next-nav {
+      right: -10px;
+    }
+    
+    .quote-icon i {
+      font-size: 1.6rem;
+    }
+    
+    .author-avatar i {
+      font-size: 1.8rem;
+    }
+    
+    .author-info h6 {
+      font-size: 0.8rem;
+    }
+    
+    .author-info small {
+      font-size: 0.65rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .slider-nav {
+      display: none;
+    }
+    
+    .testimonial-slider-wrapper {
+      padding: 0;
+      max-width: 100%;
+    }
+    
+    .testimonial-single-card {
+      padding: 1.2rem;
+    }
+    
+    .testimonial-text {
+      font-size: 0.8rem;
+      max-height: 80px;
+    }
+    
+    .rating-stars i {
+      font-size: 0.7rem;
+    }
+  }
+
+  /* Slide Animation */
+  .testimonial-slide {
+    animation: slideFade 0.4s ease;
+  }
+
+  @keyframes slideFade {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+
+<script>
+  // ============================================ //
+  // MODERATE TESTIMONIAL SLIDER JAVASCRIPT       //
+  // BALANCED SIZING - SMOOTH FUNCTIONALITY      //
+  // ============================================ //
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('testimonialSlider');
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    const dots = document.querySelectorAll('.dot');
+    
+    let currentIndex = 0;
+    let autoSlideInterval;
+    let totalSlides = slides.length;
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    
+    // Update slider position
+    function updateSlider() {
+      if (slider && slides[0]) {
+        const slideWidth = slides[0].offsetWidth;
+        const newPosition = -currentIndex * slideWidth;
+        slider.style.transform = `translateX(${newPosition}px)`;
+      }
+      updateDots();
+    }
+    
+    // Update active dot
+    function updateDots() {
+      dots.forEach((dot, idx) => {
+        if (idx === currentIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+    
+    // Go to next slide
+    function nextSlide() {
+      if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      updateSlider();
+      resetAutoSlide();
+    }
+    
+    // Go to previous slide
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = totalSlides - 1;
+      }
+      updateSlider();
+      resetAutoSlide();
+    }
+    
+    // Go to specific slide
+    function goToSlide(index) {
+      currentIndex = index;
+      updateSlider();
+      resetAutoSlide();
+    }
+    
+    // Reset auto-slide timer
+    function resetAutoSlide() {
+      if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+      }
+      autoSlideInterval = setInterval(() => {
+        nextSlide();
+      }, 5000);
+    }
+    
+    // Touch/Drag functionality
+    function dragStart(e) {
+      isDragging = true;
+      startPos = getPositionX(e);
+      slider.style.transition = 'none';
+      prevTranslate = currentTranslate;
+    }
+    
+    function dragEnd(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      slider.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+      
+      const movedBy = currentTranslate - prevTranslate;
+      const slideWidth = slides[0]?.offsetWidth || 0;
+      const threshold = slideWidth / 4;
+      
+      if (movedBy < -threshold && currentIndex < totalSlides - 1) {
+        nextSlide();
+      } else if (movedBy > threshold && currentIndex > 0) {
+        prevSlide();
+      } else {
+        updateSlider();
+      }
+    }
+    
+    function dragMove(e) {
+      if (!isDragging) return;
+      const currentPosition = getPositionX(e);
+      currentTranslate = prevTranslate + currentPosition - startPos;
+      slider.style.transform = `translateX(${currentTranslate}px)`;
+    }
+    
+    function getPositionX(e) {
+      return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+    }
+    
+    // Event Listeners
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => goToSlide(idx));
+    });
+    
+    if (slider) {
+      slider.addEventListener('mousedown', dragStart);
+      slider.addEventListener('mouseup', dragEnd);
+      slider.addEventListener('mousemove', dragMove);
+      slider.addEventListener('mouseleave', dragEnd);
+      slider.addEventListener('touchstart', dragStart);
+      slider.addEventListener('touchend', dragEnd);
+      slider.addEventListener('touchmove', dragMove);
+    }
+    
+    window.addEventListener('resize', () => {
+      updateSlider();
+    });
+    
+    function initSlider() {
+      updateSlider();
+      resetAutoSlide();
+      
+      const sliderContainer = document.querySelector('.testimonial-slider-container');
+      if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', () => {
+          if (autoSlideInterval) clearInterval(autoSlideInterval);
+        });
+        sliderContainer.addEventListener('mouseleave', () => {
+          resetAutoSlide();
+        });
+      }
+    }
+    
+    initSlider();
+  });
+</script>
 
 <script>
   // A small script to count-up stats when they come into view (purely aesthetic)
