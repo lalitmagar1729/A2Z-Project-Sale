@@ -1,448 +1,428 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>About | ProjectMarket — Student Academic Projects</title>
-  
-  <!-- Bootstrap 5 CSS + Icons + Google Fonts -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      scroll-behavior: smooth;
-    }
-
-    /* CSS Custom Properties (matching prompt) */
-    :root {
-      --primary-dark:  #1C3A58;
-      --primary:       #2A4E77;
-      --primary-light: #4B7A9C;
-      --accent:        #E67E22;
-      --accent-light:  #F39C12;
-      --accent-hover:  #E05A3A;
-      --text-dark:     #1E2F3E;
-      --text-muted:    #5A6E7C;
-      --text-light:    #94A3B8;
-      --bg-white:      #FFFFFF;
-      --bg-light:      #F8FAFE;
-      --gray-bg:       #F0F4F8;
-      --card-white:    #FFFFFF;
-      --border-light:  #E4E9F0;
-      --border-focus:  #CBD5E1;
-      --success:       #2E7D64;
-      --warning:       #F59E0B;
-      --error:         #EF4444;
-      --footer-bg:     #0F172A;
-      --footer-input:  #1E293B;
-      --footer-divider:#1E293B;
-      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08);
-    }
-
-    /* custom global styles */
-    h1, h2, h3, h4, .fw-semibold {
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-
-    .section-title {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 0.75rem;
-      font-weight: 700;
-      font-size: 2rem;
-      color: var(--primary-dark);
-    }
-    .section-title:after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: var(--accent);
-      border-radius: 4px;
-    }
-    .text-accent {
-      color: var(--accent);
-    }
-    .btn-outline-accent {
-      border: 1.5px solid var(--accent);
-      color: var(--accent);
-      background: transparent;
-      transition: all 0.25s ease;
-    }
-    .btn-outline-accent:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: white;
-      transform: translateY(-2px);
-    }
-    /* card hover effect */
-    .feature-card, .testimonial-card {
-      transition: transform 0.25s ease, box-shadow 0.3s ease;
-      border: none;
-      border-radius: 1.25rem;
-      background: var(--card-white);
-      box-shadow: var(--shadow-md);
-    }
-    .feature-card:hover, .testimonial-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.12);
-    }
-    .stat-card {
-      transition: all 0.2s ease;
-      border-radius: 1.5rem;
-      background: var(--bg-white);
-      border: 1px solid var(--border-light);
-    }
-    .stat-card:hover {
-      border-color: var(--primary-light);
-      box-shadow: var(--shadow-md);
-    }
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--primary);
-      line-height: 1.2;
-    }
-    .icon-circle {
-      width: 52px;
-      height: 52px;
-      background: rgba(42, 78, 119, 0.1);
-      border-radius: 28px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      font-size: 1.8rem;
-    }
-    .rating-star {
-      color: #f5b042;
-      letter-spacing: 2px;
-      font-size: 0.9rem;
-    }
-    footer a {
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    footer a:hover {
-      color: var(--accent-light) !important;
-    }
-    .bg-footer-dark {
-      background-color: var(--footer-bg);
-    }
-    .img-cover-soft {
-      border-radius: 1.5rem;
-      object-fit: cover;
-      width: 100%;
-      height: auto;
-      box-shadow: var(--shadow-lg);
-    }
-    @media (max-width: 768px) {
-      .stat-number {
-        font-size: 2rem;
-      }
-      .section-title {
-        font-size: 1.75rem;
-      }
-    }
-  </style>
+  <!-- NO GLOBAL CSS: all styles are scoped inside this page's wrapper, no :root leakage -->
 </head>
-<body>
-
-<!-- ========================== HERO SECTION (simple modern) ========================== -->
-<section class="pt-5 pb-4 bg-white border-bottom" style="background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFE 100%);">
-  <div class="container py-3 py-md-4">
-    <div class="row align-items-center g-4">
-      <div class="col-lg-8 mx-auto text-center">
-        <!-- subtle badge -->
-        <span class="badge bg-light text-primary px-3 py-2 rounded-pill mb-3 border" style="background:#eef2f9;"><i class="bi bi-mortarboard-fill me-1 text-accent"></i> trusted by 1500+ students</span>
-        <h1 class="display-5 fw-bold" style="color: var(--primary-dark);">Empowering students with <span class="text-accent">ready‑to‑run</span> academic projects</h1>
-        <p class="lead text-muted mt-3 mx-auto" style="max-width: 700px;">High-quality, tested project solutions across all major technologies. Save time, boost grades, and build your portfolio with confidence.</p>
-        <div class="mt-4">
-          <a href="#" class="btn btn-primary px-4 py-2 me-2" style="background: var(--primary); border-color: var(--primary);">Browse Projects <i class="bi bi-arrow-right-short"></i></a>
-          <a href="#" class="btn btn-outline-accent px-4 py-2">How it works</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================== 2. ABOUT DESCRIPTION SECTION (Text + Image) ========================== -->
-<section class="py-5 py-md-6 bg-white">
-  <div class="container">
-    <div class="row align-items-center g-5">
-      <!-- Left side: text -->
-      <div class="col-lg-6 order-2 order-lg-1">
-        <span class="text-accent fw-semibold mb-2 d-block"><i class="bi bi-chat-dots-fill me-1"></i> Who we are</span>
-        <h2 class="section-title mb-3">Your launchpad for academic excellence</h2>
-        <p class="text-muted fs-5">ProjectMarket is more than a marketplace — we’re a student-first ecosystem. Every academic project is rigorously tested, fully documented, and built to run seamlessly. Our mission is to eliminate coding roadblocks, so you can focus on learning and innovation.</p>
-        <p class="mt-3 text-secondary">From final-year engineering capstones to diploma assignments, we provide verified solutions in <strong>Python, Java, Web Dev, AI/ML, and Mobile apps</strong>. Join thousands of students who have elevated their projects with our premium, instant-delivery system.</p>
-        <div class="d-flex gap-3 mt-4 flex-wrap">
-          <div><i class="bi bi-check-circle-fill text-accent"></i> <span class="ms-1">100% working code</span></div>
-          <div><i class="bi bi-check-circle-fill text-accent"></i> <span class="ms-1">Free support & documentation</span></div>
-          <div><i class="bi bi-check-circle-fill text-accent"></i> <span class="ms-1">Secure checkout</span></div>
-        </div>
-      </div>
-      <!-- Right side: placeholder image (student working on laptop) -->
-      <div class="col-lg-6 order-1 order-lg-2">
-        <div class="position-relative">
-          <img src="https://placehold.co/700x500/2A4E77/FFFFFF?text=Student+Working+on+Laptop+%7C+Modern+Study+Space" alt="Student working on laptop" class="img-fluid img-cover-soft shadow">
-          <div class="position-absolute bottom-0 start-0 bg-white rounded-3 px-3 py-2 m-3 shadow-sm" style="border-left: 4px solid var(--accent);">
-            <i class="bi bi-star-fill text-warning"></i> <span class="fw-semibold">4.9/5 from 1200+ reviews</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================== 3. STATISTICS SECTION (4 metrics) ========================== -->
-<section class="py-5 bg-light" style="background: var(--gray-bg);">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="section-title text-center" style="display: inline-block;">Impact in numbers</h2>
-      <p class="text-muted mt-2">Our community is growing every day — real solutions for real students</p>
-    </div>
-    <div class="row g-4">
-      <!-- stat 1 -->
-      <div class="col-md-6 col-lg-3">
-        <div class="stat-card p-4 text-center h-100">
-          <div class="icon-circle mx-auto mb-3"><i class="bi bi-folder-symlink fs-2"></i></div>
-          <div class="stat-number" id="projectsCount">500+</div>
-          <p class="fw-semibold mt-2 mb-0 text-dark">Available Projects</p>
-          <small class="text-muted">Verified, run-ready codebases</small>
-        </div>
-      </div>
-      <!-- stat 2 -->
-      <div class="col-md-6 col-lg-3">
-        <div class="stat-card p-4 text-center h-100">
-          <div class="icon-circle mx-auto mb-3"><i class="bi bi-people fs-2"></i></div>
-          <div class="stat-number">2,000+</div>
-          <p class="fw-semibold mt-2 mb-0 text-dark">Active Buyers</p>
-          <small class="text-muted">Trusted academic community</small>
-        </div>
-      </div>
-      <!-- stat 3 -->
-      <div class="col-md-6 col-lg-3">
-        <div class="stat-card p-4 text-center h-100">
-          <div class="icon-circle mx-auto mb-3"><i class="bi bi-stack fs-2"></i></div>
-          <div class="stat-number">50+</div>
-          <p class="fw-semibold mt-2 mb-0 text-dark">Tech Stacks</p>
-          <small class="text-muted">Python, Java, React, Node, Flutter...</small>
-        </div>
-      </div>
-      <!-- stat 4 -->
-      <div class="col-md-6 col-lg-3">
-        <div class="stat-card p-4 text-center h-100">
-          <div class="icon-circle mx-auto mb-3"><i class="bi bi-emoji-smile fs-2"></i></div>
-          <div class="stat-number">1,500+</div>
-          <p class="fw-semibold mt-2 mb-0 text-dark">Happy Students</p>
-          <small class="text-muted">Grades & skills boosted</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================== 4. WHY CHOOSE US SECTION (2x2 grid / 4 feature cards) ========================== -->
-<section class="py-5 bg-white">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="section-title text-center" style="display: inline-block;">Why choose us</h2>
-      <p class="text-muted">Designed with students in mind — quality, speed & support</p>
-    </div>
-    <div class="row g-4">
-      <!-- Card 1: Running & Quality Run Code -->
-      <div class="col-md-6 col-lg-3">
-        <div class="feature-card p-4 h-100">
-          <div class="icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--accent);"><i class="bi bi-play-circle-fill fs-2"></i></div>
-          <h4 class="h5 fw-bold">Running & Quality Code</h4>
-          <p class="text-muted mt-2">Every project is tested on real environments. You get error-free, fully executable source code with setup guides.</p>
-          <span class="badge bg-light mt-2 text-primary">✅ Pre-verified</span>
-        </div>
-      </div>
-      <!-- Card 2: Secure Instant Delivery -->
-      <div class="col-md-6 col-lg-3">
-        <div class="feature-card p-4 h-100">
-          <div class="icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--accent);"><i class="bi bi-lock-fill fs-2"></i></div>
-          <h4 class="h5 fw-bold">Secure Instant Delivery</h4>
-          <p class="text-muted mt-2">Encrypted payment + immediate download link after purchase. Your data is protected 24/7.</p>
-          <span class="badge bg-light mt-2 text-primary"><i class="bi bi-shield-check"></i> PCI compliant</span>
-        </div>
-      </div>
-      <!-- Card 3: Multiple Technologies Integration -->
-      <div class="col-md-6 col-lg-3">
-        <div class="feature-card p-4 h-100">
-          <div class="icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--accent);"><i class="bi bi-diagram-3-fill fs-2"></i></div>
-          <h4 class="h5 fw-bold">Multiple Technologies</h4>
-          <p class="text-muted mt-2">Python (Django/Flask), Java Spring, React, Angular, Android, Flutter, and AI/ML projects.</p>
-          <span class="badge bg-light mt-2 text-primary">50+ stacks</span>
-        </div>
-      </div>
-      <!-- Card 4: 24/7 Service Available -->
-      <div class="col-md-6 col-lg-3">
-        <div class="feature-card p-4 h-100">
-          <div class="icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--accent);"><i class="bi bi-headset fs-2"></i></div>
-          <h4 class="h5 fw-bold">24/7 Service Available</h4>
-          <p class="text-muted mt-2">Round-the-clock chat & email support. Our academic experts resolve queries within hours.</p>
-          <span class="badge bg-light mt-2 text-primary">💬 Real humans</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================== 5. TESTIMONIALS SECTION (3 student reviews) ========================== -->
-<section class="py-5 bg-light" style="background: var(--bg-light);">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="section-title text-center" style="display: inline-block;">Student love</h2>
-      <p class="text-muted">Hear from students who transformed their academic journey</p>
-    </div>
-    <div class="row g-4">
-      <!-- Testimonial 1 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="testimonial-card p-4 h-100">
-          <div class="d-flex align-items-center gap-2 mb-3">
-            <div class="rating-star">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <span class="text-muted small">5.0</span>
-          </div>
-          <p class="fs-6 text-secondary">“I bought a Django e-commerce project for my final year, and it worked right out of the box. The documentation was so clear that I could customize the frontend easily. Highly recommended!”</p>
-          <hr class="my-3">
-          <div class="d-flex align-items-center">
-            <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style="width: 44px; height:44px;"><i class="bi bi-person-circle fs-3 text-primary"></i></div>
-            <div class="ms-3">
-              <h6 class="mb-0 fw-bold">Priya Sharma</h6>
-              <small class="text-muted">B.Tech CSE, VIT University</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Testimonial 2 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="testimonial-card p-4 h-100">
-          <div class="d-flex align-items-center gap-2 mb-3">
-            <div class="rating-star">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
-            </div>
-            <span class="text-muted small">4.8</span>
-          </div>
-          <p class="fs-6 text-secondary">“The instant delivery saved my submission deadline. I needed a Java Spring Boot project with MySQL, and it worked perfectly. The 24/7 support team helped me with deployment. Great service!”</p>
-          <hr class="my-3">
-          <div class="d-flex align-items-center">
-            <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style="width: 44px; height:44px;"><i class="bi bi-person-circle fs-3 text-primary"></i></div>
-            <div class="ms-3">
-              <h6 class="mb-0 fw-bold">Rahul Mehta</h6>
-              <small class="text-muted">MCA, Pune University</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Testimonial 3 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="testimonial-card p-4 h-100">
-          <div class="d-flex align-items-center gap-2 mb-3">
-            <div class="rating-star">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <span class="text-muted small">5.0</span>
-          </div>
-          <p class="fs-6 text-secondary">“As an AI student, I needed a computer vision project (YOLO) with Flask integration. ProjectMarket provided a fully functional code, and the setup guide was a lifesaver. Got an A+ grade!”</p>
-          <hr class="my-3">
-          <div class="d-flex align-items-center">
-            <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style="width: 44px; height:44px;"><i class="bi bi-person-circle fs-3 text-primary"></i></div>
-            <div class="ms-3">
-              <h6 class="mb-0 fw-bold">Neha Verma</h6>
-              <small class="text-muted">M.Sc Data Science, Christ University</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="text-center mt-5">
-      <a href="#" class="btn btn-outline-accent rounded-pill px-4"><i class="bi bi-chat-quote me-2"></i>Read more stories</a>
-    </div>
-  </div>
-</section>
-
-<script>
-  // A small script to count-up stats when they come into view (purely aesthetic)
-  // Not required but adds modern feeling. All stat numbers are already displayed in HTML.
-  (function() {
-    const statNumbers = document.querySelectorAll('.stat-number');
-    // store original text content
-    const updateNumber = (el, targetNum) => {
-      let current = 0;
-      const increment = Math.ceil(targetNum / 40);
-      const timer = setInterval(() => {
-        current += increment;
-        if(current >= targetNum) {
-          el.innerText = targetNum.toLocaleString() + (el.innerText.includes('+') ? '+' : '');
-          clearInterval(timer);
-        } else {
-          el.innerText = current + (el.innerText.includes('+') ? '+' : '');
-        }
-      }, 20);
-    };
-    // Parse numbers from text (500+, 2000+, 50+, 1500+)
-    const statsData = [
-      { elem: statNumbers[0], raw: 500, suffix: '+' },
-      { elem: statNumbers[1], raw: 2000, suffix: '+' },
-      { elem: statNumbers[2], raw: 50, suffix: '+' },
-      { elem: statNumbers[3], raw: 1500, suffix: '+' }
-    ];
-    // Intersection Observer to trigger count-up only once
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          const targetElem = entry.target;
-          const data = statsData.find(s => s.elem === targetElem);
-          if(data && !targetElem.getAttribute('data-counted')) {
-            targetElem.setAttribute('data-counted', 'true');
-            let targetNumber = data.raw;
-            let currentNum = 0;
-            const step = Math.ceil(targetNumber / 45);
-            const interval = setInterval(() => {
-              currentNum += step;
-              if(currentNum >= targetNumber) {
-                targetElem.innerText = targetNumber.toLocaleString() + data.suffix;
-                clearInterval(interval);
-              } else {
-                targetElem.innerText = currentNum + data.suffix;
-              }
-            }, 20);
-          }
-        }
-      });
-    }, { threshold: 0.5 });
-    statsData.forEach(stat => {
-      if(stat.elem) observer.observe(stat.elem);
-    });
-    // Fallback: if observer not needed, still ensure format
-    statsData.forEach(stat => {
-      if(stat.elem && !stat.elem.getAttribute('data-init')) {
-        stat.elem.setAttribute('data-init', 'true');
-        stat.elem.innerText = stat.raw.toLocaleString() + stat.suffix;
+<!-- ========== INDIVIDUAL PAGE STYLES (NO GLOBAL, COMPLETELY SCOPED) ========== -->
+<!-- We use a dedicated class "about-page-root" to encapsulate everything, avoiding any global overrides -->
+<body style="margin:0; padding:0; background: #FFFFFF;">
+  <!-- include navbar partial (assumed to be separate, but no global CSS will leak because navbar styles are independent) -->
+  <%- include("navbar.ejs") %>
+  
+  <!-- Main about page container: all custom styles are applied exclusively inside this scope -->
+  <div class="about-page-root">
+    <!-- ========== INDIVIDUAL CSS (no global :root, no * reset leaking, only component-level rules) ========== -->
+    <style>
+      /* ----- COMPLETELY SCOPED: all selectors are prefixed with .about-page-root or direct children ----- */
+      .about-page-root {
+        --about-primary-dark: #1C3A58;
+        --about-primary: #2A4E77;
+        --about-primary-light: #4B7A9C;
+        --about-accent: #E67E22;
+        --about-accent-light: #F39C12;
+        --about-accent-hover: #E05A3A;
+        --about-text-dark: #1E2F3E;
+        --about-text-muted: #5A6E7C;
+        --about-text-light: #94A3B8;
+        --about-bg-white: #FFFFFF;
+        --about-bg-light: #F8FAFE;
+        --about-gray-bg: #F0F4F8;
+        --about-card-white: #FFFFFF;
+        --about-border-light: #E4E9F0;
+        --about-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --about-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+        --about-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08);
+        font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        color: var(--about-text-dark);
+        background-color: var(--about-bg-white);
+        scroll-behavior: smooth;
       }
-    });
-  })();
-</script>
 
+      /* headings, paragraphs only inside about scope */
+      .about-page-root h1, 
+      .about-page-root h2, 
+      .about-page-root h3, 
+      .about-page-root h4,
+      .about-page-root .about-fw-semibold {
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      /* section title styling with accent underline */
+      .about-page-root .about-section-title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 0.75rem;
+        font-weight: 700;
+        font-size: 2rem;
+        color: var(--about-primary-dark);
+      }
+      .about-page-root .about-section-title:after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--about-accent);
+        border-radius: 4px;
+      }
+      .about-page-root .about-text-accent {
+        color: var(--about-accent);
+      }
+      .about-page-root .about-btn-outline-accent {
+        border: 1.5px solid var(--about-accent);
+        color: var(--about-accent);
+        background: transparent;
+        transition: all 0.25s ease;
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        border-radius: 2rem;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .about-page-root .about-btn-outline-accent:hover {
+        background: var(--about-accent);
+        border-color: var(--about-accent);
+        color: white;
+        transform: translateY(-2px);
+      }
+      .about-page-root .about-btn-primary {
+        background: var(--about-primary);
+        border-color: var(--about-primary);
+        transition: all 0.2s;
+      }
+      .about-page-root .about-btn-primary:hover {
+        background: var(--about-primary-dark);
+        transform: translateY(-2px);
+      }
+      /* feature & testimonial cards */
+      .about-page-root .about-feature-card, 
+      .about-page-root .about-testimonial-card {
+        transition: transform 0.25s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 1.25rem;
+        background: var(--about-card-white);
+        box-shadow: var(--about-shadow-md);
+      }
+      .about-page-root .about-feature-card:hover, 
+      .about-page-root .about-testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.12);
+      }
+      .about-page-root .about-stat-card {
+        transition: all 0.2s ease;
+        border-radius: 1.5rem;
+        background: var(--about-bg-white);
+        border: 1px solid var(--about-border-light);
+      }
+      .about-page-root .about-stat-card:hover {
+        border-color: var(--about-primary-light);
+        box-shadow: var(--about-shadow-md);
+      }
+      .about-page-root .about-stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--about-primary);
+        line-height: 1.2;
+      }
+      .about-page-root .about-icon-circle {
+        width: 52px;
+        height: 52px;
+        background: rgba(42, 78, 119, 0.1);
+        border-radius: 28px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--about-primary);
+        font-size: 1.8rem;
+      }
+      .about-page-root .about-rating-star {
+        color: #f5b042;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+      }
+      .about-page-root .about-img-cover-soft {
+        border-radius: 1.5rem;
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+        box-shadow: var(--about-shadow-lg);
+      }
+      .about-page-root .about-badge-light {
+        background-color: #eef2f9;
+        color: var(--about-primary);
+        border-radius: 2rem;
+        padding: 0.4rem 1rem;
+      }
+      @media (max-width: 768px) {
+        .about-page-root .about-stat-number {
+          font-size: 2rem;
+        }
+        .about-page-root .about-section-title {
+          font-size: 1.75rem;
+        }
+      }
+    </style>
+
+    <!-- ========================== HERO SECTION ========================== -->
+    <section class="about-hero-section" style="background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFE 100%); border-bottom: 1px solid var(--about-border-light);">
+      <div class="container py-3 py-md-4">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8 mx-auto text-center">
+            <span class="about-badge-light d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill mb-3" style="background:#eef2f9; color:var(--about-primary);">
+              <i class="bi bi-mortarboard-fill" style="color:var(--about-accent);"></i> trusted by 1500+ students
+            </span>
+            <h1 class="display-5 fw-bold" style="color: var(--about-primary-dark);">Empowering students with <span class="about-text-accent">ready‑to‑run</span> academic projects</h1>
+            <p class="lead mt-3 mx-auto" style="color: var(--about-text-muted); max-width: 700px;">High-quality, tested project solutions across all major technologies. Save time, boost grades, and build your portfolio with confidence.</p>
+            <div class="mt-4 d-flex flex-wrap justify-content-center gap-2">
+              <a href="#" class="about-btn-primary btn px-4 py-2" style="background: var(--about-primary); border: none; color: white; border-radius: 2rem; font-weight: 500; text-decoration: none;">Browse Projects <i class="bi bi-arrow-right-short"></i></a>
+              <a href="#" class="about-btn-outline-accent">How it works</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== ABOUT DESCRIPTION (Text + Image) ========================== -->
+    <section class="py-5 py-md-6" style="background: var(--about-bg-white);">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6 order-2 order-lg-1">
+            <span class="about-text-accent fw-semibold mb-2 d-block"><i class="bi bi-chat-dots-fill me-1"></i> Who we are</span>
+            <h2 class="about-section-title mb-3">Your launchpad for academic excellence</h2>
+            <p style="color: var(--about-text-muted); font-size: 1.1rem;">ProjectMarket is more than a marketplace — we’re a student-first ecosystem. Every academic project is rigorously tested, fully documented, and built to run seamlessly. Our mission is to eliminate coding roadblocks, so you can focus on learning and innovation.</p>
+            <p class="mt-3" style="color: var(--about-text-dark);">From final-year engineering capstones to diploma assignments, we provide verified solutions in <strong>Python, Java, Web Dev, AI/ML, and Mobile apps</strong>. Join thousands of students who have elevated their projects with our premium, instant-delivery system.</p>
+            <div class="d-flex gap-3 mt-4 flex-wrap">
+              <div><i class="bi bi-check-circle-fill" style="color: var(--about-accent);"></i> <span class="ms-1">100% working code</span></div>
+              <div><i class="bi bi-check-circle-fill" style="color: var(--about-accent);"></i> <span class="ms-1">Free support & documentation</span></div>
+              <div><i class="bi bi-check-circle-fill" style="color: var(--about-accent);"></i> <span class="ms-1">Secure checkout</span></div>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2">
+            <div class="position-relative">
+              <img src="https://placehold.co/700x500/2A4E77/FFFFFF?text=Student+Working+on+Laptop+%7C+Modern+Study+Space" alt="Student working on laptop" class="about-img-cover-soft img-fluid shadow">
+              <div class="position-absolute bottom-0 start-0 bg-white rounded-3 px-3 py-2 m-3 shadow-sm" style="border-left: 4px solid var(--about-accent);">
+                <i class="bi bi-star-fill text-warning"></i> <span class="fw-semibold">4.9/5 from 1200+ reviews</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== STATISTICS SECTION ========================== -->
+    <section style="background: var(--about-gray-bg); padding: 3.5rem 0;">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="about-section-title text-center" style="display: inline-block;">Impact in numbers</h2>
+          <p style="color: var(--about-text-muted); margin-top: 0.75rem;">Our community is growing every day — real solutions for real students</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="about-stat-card p-4 text-center h-100">
+              <div class="about-icon-circle mx-auto mb-3"><i class="bi bi-folder-symlink fs-2"></i></div>
+              <div class="about-stat-number" id="aboutStatProjects">500+</div>
+              <p class="fw-semibold mt-2 mb-0" style="color: var(--about-text-dark);">Available Projects</p>
+              <small style="color: var(--about-text-muted);">Verified, run-ready codebases</small>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="about-stat-card p-4 text-center h-100">
+              <div class="about-icon-circle mx-auto mb-3"><i class="bi bi-people fs-2"></i></div>
+              <div class="about-stat-number" id="aboutStatBuyers">2,000+</div>
+              <p class="fw-semibold mt-2 mb-0" style="color: var(--about-text-dark);">Active Buyers</p>
+              <small style="color: var(--about-text-muted);">Trusted academic community</small>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="about-stat-card p-4 text-center h-100">
+              <div class="about-icon-circle mx-auto mb-3"><i class="bi bi-stack fs-2"></i></div>
+              <div class="about-stat-number" id="aboutStatStacks">50+</div>
+              <p class="fw-semibold mt-2 mb-0" style="color: var(--about-text-dark);">Tech Stacks</p>
+              <small style="color: var(--about-text-muted);">Python, Java, React, Node, Flutter...</small>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="about-stat-card p-4 text-center h-100">
+              <div class="about-icon-circle mx-auto mb-3"><i class="bi bi-emoji-smile fs-2"></i></div>
+              <div class="about-stat-number" id="aboutStatStudents">1,500+</div>
+              <p class="fw-semibold mt-2 mb-0" style="color: var(--about-text-dark);">Happy Students</p>
+              <small style="color: var(--about-text-muted);">Grades & skills boosted</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== WHY CHOOSE US (4 feature cards) ========================== -->
+    <section style="background: var(--about-bg-white); padding: 3.5rem 0;">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="about-section-title text-center" style="display: inline-block;">Why choose us</h2>
+          <p style="color: var(--about-text-muted);">Designed with students in mind — quality, speed & support</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="about-feature-card p-4 h-100">
+              <div class="about-icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--about-accent);"><i class="bi bi-play-circle-fill fs-2"></i></div>
+              <h4 class="h5 fw-bold">Running & Quality Code</h4>
+              <p style="color: var(--about-text-muted); margin-top: 0.5rem;">Every project is tested on real environments. You get error-free, fully executable source code with setup guides.</p>
+              <span class="badge mt-2" style="background:#eef2f9; color: var(--about-primary);">✅ Pre-verified</span>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="about-feature-card p-4 h-100">
+              <div class="about-icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--about-accent);"><i class="bi bi-lock-fill fs-2"></i></div>
+              <h4 class="h5 fw-bold">Secure Instant Delivery</h4>
+              <p style="color: var(--about-text-muted); margin-top: 0.5rem;">Encrypted payment + immediate download link after purchase. Your data is protected 24/7.</p>
+              <span class="badge mt-2" style="background:#eef2f9; color: var(--about-primary);"><i class="bi bi-shield-check"></i> PCI compliant</span>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="about-feature-card p-4 h-100">
+              <div class="about-icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--about-accent);"><i class="bi bi-diagram-3-fill fs-2"></i></div>
+              <h4 class="h5 fw-bold">Multiple Technologies</h4>
+              <p style="color: var(--about-text-muted); margin-top: 0.5rem;">Python (Django/Flask), Java Spring, React, Angular, Android, Flutter, and AI/ML projects.</p>
+              <span class="badge mt-2" style="background:#eef2f9; color: var(--about-primary);">50+ stacks</span>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="about-feature-card p-4 h-100">
+              <div class="about-icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--about-accent);"><i class="bi bi-headset fs-2"></i></div>
+              <h4 class="h5 fw-bold">24/7 Service Available</h4>
+              <p style="color: var(--about-text-muted); margin-top: 0.5rem;">Round-the-clock chat & email support. Our academic experts resolve queries within hours.</p>
+              <span class="badge mt-2" style="background:#eef2f9; color: var(--about-primary);">💬 Real humans</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== TESTIMONIALS SECTION ========================== -->
+    <section style="background: var(--about-bg-light); padding: 3.5rem 0;">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="about-section-title text-center" style="display: inline-block;">Student love</h2>
+          <p style="color: var(--about-text-muted);">Hear from students who transformed their academic journey</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="about-testimonial-card p-4 h-100">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="about-rating-star"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <span class="small" style="color: var(--about-text-muted);">5.0</span>
+              </div>
+              <p style="color: var(--about-text-dark);">“I bought a Django e-commerce project for my final year, and it worked right out of the box. The documentation was so clear that I could customize the frontend easily. Highly recommended!”</p>
+              <hr class="my-3" style="border-color: var(--about-border-light);">
+              <div class="d-flex align-items-center">
+                <div style="background: rgba(42,78,119,0.1); width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;"><i class="bi bi-person-circle fs-3" style="color: var(--about-primary);"></i></div>
+                <div class="ms-3">
+                  <h6 class="mb-0 fw-bold">Priya Sharma</h6>
+                  <small style="color: var(--about-text-muted);">B.Tech CSE, VIT University</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="about-testimonial-card p-4 h-100">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="about-rating-star"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+                <span class="small" style="color: var(--about-text-muted);">4.8</span>
+              </div>
+              <p style="color: var(--about-text-dark);">“The instant delivery saved my submission deadline. I needed a Java Spring Boot project with MySQL, and it worked perfectly. The 24/7 support team helped me with deployment. Great service!”</p>
+              <hr class="my-3" style="border-color: var(--about-border-light);">
+              <div class="d-flex align-items-center">
+                <div style="background: rgba(42,78,119,0.1); width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;"><i class="bi bi-person-circle fs-3" style="color: var(--about-primary);"></i></div>
+                <div class="ms-3">
+                  <h6 class="mb-0 fw-bold">Rahul Mehta</h6>
+                  <small style="color: var(--about-text-muted);">MCA, Pune University</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="about-testimonial-card p-4 h-100">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="about-rating-star"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <span class="small" style="color: var(--about-text-muted);">5.0</span>
+              </div>
+              <p style="color: var(--about-text-dark);">“As an AI student, I needed a computer vision project (YOLO) with Flask integration. ProjectMarket provided a fully functional code, and the setup guide was a lifesaver. Got an A+ grade!”</p>
+              <hr class="my-3" style="border-color: var(--about-border-light);">
+              <div class="d-flex align-items-center">
+                <div style="background: rgba(42,78,119,0.1); width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;"><i class="bi bi-person-circle fs-3" style="color: var(--about-primary);"></i></div>
+                <div class="ms-3">
+                  <h6 class="mb-0 fw-bold">Neha Verma</h6>
+                  <small style="color: var(--about-text-muted);">M.Sc Data Science, Christ University</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          <a href="#" class="about-btn-outline-accent rounded-pill px-4" style="display: inline-block;"><i class="bi bi-chat-quote me-2"></i>Read more stories</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SCRIPT: Intersection Observer for stat counters (isolated inside this page) ========== -->
+    <script>
+      (function() {
+        // Target all stat numbers inside .about-page-root
+        const statElements = [
+          { elem: document.getElementById('aboutStatProjects'), raw: 500, suffix: '+' },
+          { elem: document.getElementById('aboutStatBuyers'), raw: 2000, suffix: '+' },
+          { elem: document.getElementById('aboutStatStacks'), raw: 50, suffix: '+' },
+          { elem: document.getElementById('aboutStatStudents'), raw: 1500, suffix: '+' }
+        ].filter(item => item.elem);
+        
+        // Initialize default values
+        statElements.forEach(stat => {
+          if (stat.elem && !stat.elem.getAttribute('data-counted-init')) {
+            stat.elem.setAttribute('data-counted-init', 'true');
+            stat.elem.innerText = stat.raw.toLocaleString() + stat.suffix;
+          }
+        });
+        
+        // Count-up function using requestAnimationFrame smoothness
+        function startCountUp(el, target, suffix) {
+          if (el.getAttribute('data-animated') === 'true') return;
+          el.setAttribute('data-animated', 'true');
+          let current = 0;
+          const duration = 1000;
+          const stepTime = 16;
+          const steps = duration / stepTime;
+          const increment = target / steps;
+          let step = 0;
+          const timer = setInterval(() => {
+            step++;
+            current += increment;
+            if (step >= steps) {
+              el.innerText = target.toLocaleString() + suffix;
+              clearInterval(timer);
+            } else {
+              el.innerText = Math.floor(current).toLocaleString() + suffix;
+            }
+          }, stepTime);
+        }
+        
+        // Intersection Observer with threshold
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const targetElem = entry.target;
+              const statData = statElements.find(s => s.elem === targetElem);
+              if (statData && !targetElem.getAttribute('data-animated')) {
+                startCountUp(targetElem, statData.raw, statData.suffix);
+              }
+            }
+          });
+        }, { threshold: 0.5 });
+        
+        statElements.forEach(stat => {
+          if (stat.elem) observer.observe(stat.elem);
+        });
+      })();
+    </script>
+  </div>
+
+  
 <%- include("footer.ejs") %>

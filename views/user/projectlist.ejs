@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Portfolio | Modern Project Showcase</title>
-  <!-- Bootstrap 5 CSS + Icons (Bootstrap Icons for cart/view icons optional but clean) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts: Poppins + Roboto fallback -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (free icons for modern feel, optional but adds flair) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<%- include("navbar.ejs") %>
   <style>
     /* ----- NO GLOBAL STYLES: only scoped to .project-page container & card components ----- */
     /* Everything is prefixed with .project-container or .project-card to avoid global leakage */
-    
+
     .project-page {
-      background: #f8fafc;   /* soft gray-blue background for page depth */
+      background: #f8fafc;
+      /* soft gray-blue background for page depth */
       font-family: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     }
 
@@ -86,7 +76,8 @@
 
     .project-img {
       width: 100%;
-      aspect-ratio: 16 / 10;  /* consistent aspect ratio for all thumbnails */
+      aspect-ratio: 16 / 10;
+      /* consistent aspect ratio for all thumbnails */
       object-fit: cover;
       transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       display: block;
@@ -126,12 +117,14 @@
     .project-price {
       font-weight: 700;
       font-size: 1.3rem;
-      color: #1e6f5c;   /* modern teal accent */
+      color: #1e6f5c;
+      /* modern teal accent */
       margin-bottom: 1.1rem;
       display: flex;
       align-items: baseline;
       gap: 5px;
     }
+
     .project-price small {
       font-size: 0.8rem;
       font-weight: 500;
@@ -193,13 +186,17 @@
       .portfolio-header h1 {
         font-size: 2rem;
       }
+
       .project-title {
         font-size: 1.2rem;
       }
+
       .card-buttons {
         flex-wrap: wrap;
       }
-      .btn-outline-details, .btn-teal-cart {
+
+      .btn-outline-details,
+      .btn-teal-cart {
         font-size: 0.8rem;
         padding: 0.4rem 0.6rem;
       }
@@ -207,124 +204,366 @@
 
     /* footer minimal (not global style) */
     .project-footer {
-      border-top: 1px solid rgba(0,0,0,0.05);
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
       background: transparent;
       color: #5b6e8c;
     }
+
+    /* Wishlist Button */
+    .card-img-top-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wishlist-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      z-index: 10;
+    }
+
+    .wishlist-btn i {
+      font-size: 18px;
+      color: #666;
+      transition: color 0.3s ease;
+    }
+
+    .wishlist-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .wishlist-btn:hover i {
+      color: #e74c3c;
+    }
+
+    .wishlist-btn.active i {
+      color: #e74c3c;
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+    }
+
+    /* Technology Tags */
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .tech-tag {
+      background: #f0f4f8;
+      color: #2c3e50;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transition: all 0.2s ease;
+    }
+
+    .tech-tag:hover {
+      background: #e2e8f0;
+      transform: translateY(-1px);
+    }
+
+    /* Optional: Different colors for different tech tags (using data attributes or additional classes) */
+    .tech-tag[data-tech="react"] {
+      background: #61dafb20;
+      color: #61dafb;
+    }
+
+    .tech-tag[data-tech="node"] {
+      background: #68a06320;
+      color: #68a063;
+    }
+    /* Enhanced Pagination Styling */
+.pagination {
+  gap: 5px;
+}
+
+.page-item {
+  margin: 0 2px;
+}
+
+.page-link {
+  border-radius: 8px;
+  padding: 10px 16px;
+  color: #2c3e50;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.page-link:hover {
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+  color: #14b8a6;
+  transform: translateY(-2px);
+}
+
+.page-item.active .page-link {
+  background-color: #14b8a6;
+  border-color: #14b8a6;
+  color: white;
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+}
+
+.page-item.disabled .page-link {
+  color: #adb5bd;
+  pointer-events: none;
+  background-color: #fff;
+  border-color: #dee2e6;
+}
+
+.page-link i {
+  font-size: 12px;
+}
+
+/* Responsive Pagination */
+@media (max-width: 768px) {
+  .page-link {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+  
+  .pagination {
+    gap: 3px;
+  }
+}
   </style>
-</head>
-<div class="project-page">
-  <div class="container py-5 my-3">
-    <!-- Responsive Bootstrap Grid: 3 cols desktop, 2 tablet, 1 mobile -->
-    <div class="row g-4">
-      <!-- Project Card 1 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="project-card h-100">
-          <div class="card-img-top-wrapper">
-            <img src="https://picsum.photos/id/20/600/400" alt="Modern workspace design" class="project-img" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h3 class="project-title">Nexa Dashboard</h3>
-            <p class="project-description">Analytics platform with real-time insights, AI predictions and smart reporting tools for enterprise teams.</p>
-            <div class="project-price">$249 <small>one-time</small></div>
-            <div class="card-buttons">
-              <a href="#" class="btn-outline-details text-decoration-none"><i class="far fa-eye me-1"></i> View Details</a>
-              <a href="#" class="btn-teal-cart text-decoration-none"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
+  </head>
+  <div class="project-page">
+    <div class="container py-5 my-3">
+      <!-- Responsive Bootstrap Grid: 3 cols desktop, 2 tablet, 1 mobile -->
+      <div class="row g-4">
 
-      <!-- Project Card 2 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="project-card h-100">
-          <div class="card-img-top-wrapper">
-            <img src="https://picsum.photos/id/26/600/400" alt="Urban vibes photography" class="project-img" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h3 class="project-title">Elysian Store</h3>
-            <p class="project-description">Headless e‑commerce solution with smooth checkout, AI recommendations and blazing fast performance.</p>
-            <div class="project-price">$399 <small>license</small></div>
-            <div class="card-buttons">
-              <a href="#" class="btn-outline-details text-decoration-none"><i class="far fa-eye me-1"></i> View Details</a>
-              <a href="#" class="btn-teal-cart text-decoration-none"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+        <!-- Project Card 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card h-100">
+            <div class="card-img-top-wrapper position-relative">
+              <img src="https://picsum.photos/id/20/600/400" alt="Modern workspace design" class="project-img"
+                loading="lazy">
+              <!-- Wishlist Icon on Top -->
+              <button class="wishlist-btn" aria-label="Add to wishlist">
+                <i class="far fa-heart"></i>
+              </button>
             </div>
-          </div>
-        </div>
-      </div>
+            <div class="card-body">
+              <h3 class="project-title">Nexa Dashboard</h3>
+              <p class="project-description">Analytics platform with real-time insights, AI predictions and smart
+                reporting tools for enterprise teams.</p>
 
-      <!-- Project Card 3 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="project-card h-100">
-          <div class="card-img-top-wrapper">
-            <img src="https://picsum.photos/id/42/600/400" alt="Creative music studio" class="project-img" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h3 class="project-title">SoundFlow Studio</h3>
-            <p class="project-description">Collaborative audio production suite with cloud storage, multi-track editing and real-time feedback.</p>
-            <div class="project-price">$159 <small>/year</small></div>
-            <div class="card-buttons">
-              <a href="#" class="btn-outline-details text-decoration-none"><i class="far fa-eye me-1"></i> View Details</a>
-              <a href="#" class="btn-teal-cart text-decoration-none"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
+              <!-- Technologies Used -->
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">TensorFlow</span>
+                <span class="tech-tag">D3.js</span>
+              </div>
 
-      <!-- Project Card 4 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="project-card h-100">
-          <div class="card-img-top-wrapper">
-            <img src="https://picsum.photos/id/58/600/400" alt="Modern architecture concept" class="project-img" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h3 class="project-title">ArchiViz Pro</h3>
-            <p class="project-description">3D visualization toolkit for architects, offering real-time rendering and material simulation.</p>
-            <div class="project-price">$499 <small>per seat</small></div>
-            <div class="card-buttons">
-              <a href="#" class="btn-outline-details text-decoration-none"><i class="far fa-eye me-1"></i> View Details</a>
-              <a href="#" class="btn-teal-cart text-decoration-none"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+              <div class="project-price">$249 <small>one-time</small></div>
+              <div class="card-buttons">
+                <a href="#" class="btn-outline-details text-decoration-none"><i class="far fa-eye me-1"></i> View
+                  Details</a>
+                <a href="#" class="btn-teal-cart text-decoration-none"><i class="fas fa-shopping-cart"></i> Add to
+                  Cart</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Project Card 5 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="project-card h-100">
-          <div class="card-img-top-wrapper">
-            <img src="https://picsum.photos/id/91/600/400" alt="Vibrant neon branding" class="project-img" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h3 class="project-title">Neon Pulse</h3>
-            <p class="project-description">Interactive brand identity & motion design system for creative agencies. Fully customizable.</p>
-            <div class="project-price">$89 <small>starter</small></div>
-            <div class="card-buttons">
-              <a href="#" class="btn-outline-details text-decoration-none"><i class="far fa-eye me-1"></i> View Details</a>
-              <a href="#" class="btn-teal-cart text-decoration-none"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+        <!-- Project Card 2 -->
+        <!-- <div class="col-md-6 col-lg-4">
+          <div class="project-card h-100">
+            <div class="card-img-top-wrapper">
+              <img src="https://picsum.photos/id/26/600/400" alt="Urban vibes photography" class="project-img"
+                loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3 class="project-title">Elysian Store</h3>
+              <p class="project-description">Headless e‑commerce solution with smooth checkout, AI recommendations and
+                blazing fast performance.</p>
+              <div class="project-price">$399 <small>license</small></div>
+              <div class="card-buttons">
+                <a href="#" class="btn-outline-details text-decoration-none"><i class="far fa-eye me-1"></i> View
+                  Details</a>
+                <a href="#" class="btn-teal-cart text-decoration-none"><i class="fas fa-shopping-cart"></i> Add to
+                  Cart</a>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div> -->
 
-      <!-- Project Card 6 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="project-card h-100">
-          <div class="card-img-top-wrapper">
-            <img src="https://picsum.photos/id/169/600/400" alt="Sunset landscape" class="project-img" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h3 class="project-title">Horizon Travel</h3>
-            <p class="project-description">All‑in‑one travel planner with AI itineraries, hotel deals, and immersive destination guides.</p>
-            <div class="project-price">$129 <small>license</small></div>
-            <div class="card-buttons">
-              <a href="#" class="btn-outline-details text-decoration-none"><i class="far fa-eye me-1"></i> View Details</a>
-              <a href="#" class="btn-teal-cart text-decoration-none"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+        <!-- Project Card 3 -->
+        <!-- <div class="col-md-6 col-lg-4">
+          <div class="project-card h-100">
+            <div class="card-img-top-wrapper">
+              <img src="https://picsum.photos/id/42/600/400" alt="Creative music studio" class="project-img"
+                loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3 class="project-title">SoundFlow Studio</h3>
+              <p class="project-description">Collaborative audio production suite with cloud storage, multi-track
+                editing and real-time feedback.</p>
+              <div class="project-price">$159 <small>/year</small></div>
+              <div class="card-buttons">
+                <a href="#" class="btn-outline-details text-decoration-none"><i class="far fa-eye me-1"></i> View
+                  Details</a>
+                <a href="#" class="btn-teal-cart text-decoration-none"><i class="fas fa-shopping-cart"></i> Add to
+                  Cart</a>
+              </div>
             </div>
           </div>
-        </div>
+        </div> -->
+
+        <!-- Project Card 4 -->
+        <!-- <div class="col-md-6 col-lg-4">
+          <div class="project-card h-100">
+            <div class="card-img-top-wrapper">
+              <img src="https://picsum.photos/id/58/600/400" alt="Modern architecture concept" class="project-img"
+                loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3 class="project-title">ArchiViz Pro</h3>
+              <p class="project-description">3D visualization toolkit for architects, offering real-time rendering and
+                material simulation.</p>
+              <div class="project-price">$499 <small>per seat</small></div>
+              <div class="card-buttons">
+                <a href="#" class="btn-outline-details text-decoration-none"><i class="far fa-eye me-1"></i> View
+                  Details</a>
+                <a href="#" class="btn-teal-cart text-decoration-none"><i class="fas fa-shopping-cart"></i> Add to
+                  Cart</a>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Project Card 5 -->
+        <!-- <div class="col-md-6 col-lg-4">
+          <div class="project-card h-100">
+            <div class="card-img-top-wrapper">
+              <img src="https://picsum.photos/id/91/600/400" alt="Vibrant neon branding" class="project-img"
+                loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3 class="project-title">Neon Pulse</h3>
+              <p class="project-description">Interactive brand identity & motion design system for creative agencies.
+                Fully customizable.</p>
+              <div class="project-price">$89 <small>starter</small></div>
+              <div class="card-buttons">
+                <a href="#" class="btn-outline-details text-decoration-none"><i class="far fa-eye me-1"></i> View
+                  Details</a>
+                <a href="#" class="btn-teal-cart text-decoration-none"><i class="fas fa-shopping-cart"></i> Add to
+                  Cart</a>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Project Card 6 -->
+        <!-- <div class="col-md-6 col-lg-4">
+          <div class="project-card h-100">
+            <div class="card-img-top-wrapper">
+              <img src="https://picsum.photos/id/169/600/400" alt="Sunset landscape" class="project-img" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3 class="project-title">Horizon Travel</h3>
+              <p class="project-description">All‑in‑one travel planner with AI itineraries, hotel deals, and immersive
+                destination guides.</p>
+              <div class="project-price">$129 <small>license</small></div>
+              <div class="card-buttons">
+                <a href="#" class="btn-outline-details text-decoration-none"><i class="far fa-eye me-1"></i> View
+                  Details</a>
+                <a href="#" class="btn-teal-cart text-decoration-none"><i class="fas fa-shopping-cart"></i> Add to
+                  Cart</a>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      
+      
+  <!-- Bootstrap Pagination -->
+  <nav aria-label="Project pagination" class="mt-5 pt-3">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+          <i class="fas fa-chevron-left"></i> Previous
+        </a>
+      </li>
+      <li class="page-item active" aria-current="page">
+        <a class="page-link" href="#">1</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">2</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">3</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">4</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">5</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">
+          Next <i class="fas fa-chevron-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Optional: Pagination Info Text -->
+  <div class="text-center text-muted mt-3">
+    <small>Showing 1-3 of 15 projects</small>
+  </div>
+</div>    
+      
       </div>
     </div>
-    </div>
+    <script>
+      // Simple pagination functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const paginationLinks = document.querySelectorAll('.pagination .page-link');
+  
+  paginationLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      if (!this.parentElement.classList.contains('disabled') && 
+          !this.parentElement.classList.contains('active')) {
+        
+        // Remove active class from all pagination items
+        document.querySelectorAll('.pagination .page-item').forEach(item => {
+          item.classList.remove('active');
+        });
+        
+        // Add active class to current item
+        this.parentElement.classList.add('active');
+        
+        // Here you would typically fetch new data or show/hide projects
+        console.log('Navigate to page:', this.textContent);
+        
+        // Scroll to top of project grid smoothly
+        document.querySelector('.project-grid, .container').scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+      e.preventDefault();
+    });
+  });
+});
+    </script>
 
-<%- include("footer.ejs") %>
+    <%- include("footer.ejs") %>
