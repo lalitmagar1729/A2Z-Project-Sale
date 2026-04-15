@@ -1,53 +1,199 @@
-<footer class="site-footer">
-  <div class="footer-container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>ProjectMarket</h3>
-        <p>Premium project marketplace trusted by 5000+ developers. Get ready-to-deploy source code with documentation
-          and certificates.</p>
+
+  <style>
+    /* ----- ALL STYLES ARE NESTED UNDER .modern-footer ----- */
+    .modern-footer {
+      background: #0B1120;      /* deep modern slate */
+      color: #e2e8f0;
+      padding: 3rem 0 1.5rem;
+      margin-top: 4rem;
+      font-family: system-ui, 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* headings inside footer */
+    .modern-footer .footer-heading {
+      color: white;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.2px;
+    }
+
+    .modern-footer .footer-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #FFFFFF 0%, #cbd5e1 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+
+    /* description text */
+    .modern-footer .footer-text {
+      color: #94a3b8;
+      line-height: 1.5;
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* link lists - clean & minimal */
+    .modern-footer .footer-links {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .modern-footer .footer-links li {
+      margin-bottom: 0.6rem;
+    }
+
+    .modern-footer .footer-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .modern-footer .footer-links a:hover {
+      color: #f97316;     /* modern orange accent */
+      transform: translateX(3px);
+    }
+
+    /* social icons row */
+    .modern-footer .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .modern-footer .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .modern-footer .social-icons a:hover {
+      background: #f97316;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* contact info items (bootstrap icons alternative using fontawesome) */
+    .modern-footer .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+      color: #cbd5e6;
+    }
+
+    .modern-footer .contact-item i {
+      width: 1.4rem;
+      color: #f97316;
+      font-size: 1rem;
+    }
+
+    /* footer bottom border & copyright */
+    .modern-footer .footer-bottom {
+      border-top: 1px solid #1e293b;
+      padding-top: 1.5rem;
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    /* optional hover accent for email / chat */
+    .modern-footer .contact-link {
+      color: #cbd5e6;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .modern-footer .contact-link:hover {
+      color: #f97316;
+    }
+
+    /* make sure no global interference — everything is scoped */
+    /* small responsive adjustments (only inside footer) */
+    @media (max-width: 768px) {
+      .modern-footer {
+        padding: 2rem 0 1.2rem;
+      }
+      .modern-footer .footer-heading {
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+
+  <!-- ========== MODERN FOOTER ========== -->
+  <!-- Uses Bootstrap grid system (row/col) for layout, but no global CSS outside footer -->
+<footer class="modern-footer">
+  <div class="container">
+    <div class="row gy-4 gx-4 align-items-start">
+
+      <!-- LEFT -->
+      <div class="col-12 col-md-6 col-lg-4 text-start">
+        <span class="footer-brand">ProjectMarket</span>
+        <p class="footer-text mt-2">
+         Premium project marketplace trusted by 5000+ developers. Get ready-to-deploy source code with documentation and certificates.
+        </p>
         <div class="social-icons">
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-linkedin-in"></i>
-          <i class="fab fa-youtube"></i>
-          <i class="fab fa-facebook"></i>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
+
+      <!-- CENTER -->
+      <div class="col-6 col-md-3 col-lg-4 text-center">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links list-unstyled">
           <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact Support</a></li>
+          <li><a href="#">Explore Projects</a></li>
           <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Terms & conditions</a></li>
         </ul>
       </div>
-      <!-- <div class="footer-col">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="#">Help Center</a></li>
-          <li><a href="#">Become a Seller</a></li>
-          <li><a href="#">Affiliate Program</a></li>
-          <li><a href="#">Certificate Verification</a></li>
-        </ul>
-      </div> -->
-      <div class="footer-col">
-        <h4>Subscribe</h4>
-        <p>Get updates on new projects</p>
-        <div class="subscribe-form">
-          <input type="email" placeholder="Your email" id="footerEmail">
-          <button onclick="alert('Demo: Thank you for subscribing!')">→</button>
+
+      <!-- RIGHT -->
+      <div class="col-6 col-md-3 col-lg-4 ">
+        <h4 class="footer-heading">Get in touch</h4>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:hello@projectmarket.com" class="contact-link">
+            hello@projectmarket.com
+          </a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-comment-dots"></i>
+          <span class="contact-link">24/7 live chat</span>
         </div>
       </div>
+
     </div>
-    <div class="footer-bottom">
-      <p>© <%= new Date().getFullYear() %> ProjectMarket — All rights reserved. Built by A2Z.</p>
-    </div>
+
+    <div class="footer-bottom text-center mt-4">
+  <p class="mb-0">
+    &copy; <%= new Date().getFullYear() %> ProjectMarket. All rights reserved. Developed by A2Z.
+  </p>
+</div>
   </div>
 </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="js/script.js"></script>
+  <!-- Bootstrap JS bundle (optional for any toggles, but not required for footer) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+ 
 </body>
-
 </html>
