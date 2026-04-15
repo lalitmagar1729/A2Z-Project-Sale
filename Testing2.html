@@ -333,3 +333,482 @@
   <!-- no extra JS needed for hover effects, but ensures toggles if needed -->
 </body>
 </html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Contact Us | Get in Touch</title>
+  <!-- Bootstrap 5 CSS + Icons + Font Awesome CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts (optional modern touch) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    /* custom overrides & smooth hover effects */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      scroll-behavior: smooth;
+    }
+
+    .contact-header {
+      background: linear-gradient(135deg, #0B2B40 0%, #1A4A5F 100%);
+      border-radius: 0 0 2rem 2rem;
+      padding: 3rem 1rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-header h1 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .card-contact {
+      border: none;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      background: white;
+      height: 100%;
+    }
+
+    .card-contact:hover {
+      box-shadow: 0 25px 40px -14px rgba(0, 0, 0, 0.12);
+    }
+
+    .info-item {
+      transition: all 0.2s ease-in-out;
+      border-radius: 1rem;
+      padding: 0.75rem;
+    }
+
+    .info-item:hover {
+      background-color: #f1f5f9;
+      transform: translateX(5px);
+    }
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background-color: #eef2ff;
+      border-radius: 50%;
+      color: #1e4a6b;
+      transition: all 0.25s ease;
+      font-size: 1.4rem;
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      background-color: #1e4a6b;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* custom submit button */
+    .btn-submit {
+      background: linear-gradient(95deg, #0f3b4c, #1e5a72);
+      border: none;
+      padding: 0.75rem 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: all 0.2s;
+      color: white;
+    }
+
+    .btn-submit:hover {
+      background: linear-gradient(95deg, #0a2f3e, #164a60);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(21, 84, 104, 0.25);
+    }
+
+    .btn-submit:active {
+      transform: translateY(1px);
+    }
+
+    /* loading state styling */
+    .btn-submit.loading {
+      pointer-events: none;
+      opacity: 0.85;
+    }
+
+    /* form validation custom styles (bootstrap 5 valid/invalid) */
+    .was-validated .form-control:valid, 
+    .form-control.is-valid {
+      border-color: #198754;
+      background-image: none; /* keep clean, but bootstrap default check is fine */
+    }
+    
+    .was-validated .form-control:invalid, 
+    .form-control.is-invalid {
+      border-color: #dc3545;
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 0 0.2rem rgba(26, 74, 95, 0.25);
+      border-color: #1a4a5f;
+    }
+
+    /* map placeholder */
+    .map-placeholder {
+      background-color: #e9ecef;
+      border-radius: 1rem;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('https://placehold.co/600x200/e2e8f0/1e4a6b?text=🗺️+Map+Integration+Preview');
+      background-size: cover;
+      background-position: center;
+      transition: all 0.2s;
+    }
+
+    .map-placeholder i {
+      background: rgba(255,255,240,0.9);
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+    }
+
+    /* responsive spacing */
+    @media (max-width: 768px) {
+      .contact-header {
+        padding: 2rem 1rem;
+      }
+      .info-item:hover {
+        transform: translateX(0);
+      }
+    }
+
+    /* character counter small text */
+    .char-counter {
+      font-size: 0.75rem;
+      color: #5f6c7a;
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section: Professional title & subtitle -->
+  <div class="contact-header text-white text-center">
+    <div class="container">
+      <h1 class="display-5 fw-bold mb-3"><i class="fas fa-envelope-open-text me-2"></i>Get in Touch</h1>
+      <p class="lead fs-5 mx-auto" style="max-width: 680px; opacity: 0.9;">
+        We’d love to hear from you! Whether you have a question about our services, feedback, or just want to say hello — feel free to drop us a message.
+      </p>
+      <div class="mt-3">
+        <span class="badge bg-light text-dark rounded-pill px-3 py-2"><i class="fas fa-clock me-1"></i> Response within 24h</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container pb-5">
+    <!-- TWO-COLUMN LAYOUT using Bootstrap Grid: row + col-md-6 -->
+    <div class="row g-4">
+      
+      <!-- LEFT COLUMN: Contact Form -->
+      <div class="col-lg-6 col-md-12">
+        <div class="card-contact p-4 p-xl-5">
+          <div class="d-flex align-items-center gap-2 mb-4">
+            <i class="fas fa-pen-alt fs-3" style="color: #1e5a72;"></i>
+            <h3 class="h3 fw-semibold mb-0">Send us a message</h3>
+          </div>
+          <p class="text-secondary mb-4">Fill out the form below and our team will get back to you shortly.</p>
+          
+          <!-- INQUIRY FORM with Bootstrap validation, character counter, loading state -->
+          <form id="contactForm" novalidate>
+            <!-- Full Name (required) -->
+            <div class="mb-3">
+              <label for="fullName" class="form-label fw-semibold"><i class="fas fa-user me-1"></i> Full Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control form-control-lg" id="fullName" placeholder="John Carter" required>
+              <div class="invalid-feedback">Please enter your full name.</div>
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+            
+            <!-- Email Address (required + email validation) -->
+            <div class="mb-3">
+              <label for="emailAddress" class="form-label fw-semibold"><i class="fas fa-envelope me-1"></i> Email Address <span class="text-danger">*</span></label>
+              <input type="email" class="form-control form-control-lg" id="emailAddress" placeholder="hello@example.com" required>
+              <div class="invalid-feedback">Please provide a valid email address.</div>
+              <div class="valid-feedback">Valid email!</div>
+            </div>
+            
+            <!-- Mobile or Phone Number -->
+            <div class="mb-3">
+              <label for="phoneNumber" class="form-label fw-semibold"><i class="fas fa-phone-alt me-1"></i> Mobile / Phone Number</label>
+              <input type="tel" class="form-control form-control-lg" id="phoneNumber" placeholder="+1 234 567 8900">
+              <div class="form-text">Optional, but helps us reach you faster.</div>
+            </div>
+            
+            <!-- Message textarea (required, character counter) -->
+            <div class="mb-3">
+              <label for="message" class="form-label fw-semibold"><i class="fas fa-comment-dots me-1"></i> Message <span class="text-danger">*</span></label>
+              <textarea class="form-control form-control-lg" id="message" rows="4" placeholder="Tell us how we can help..." required maxlength="500"></textarea>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="invalid-feedback">Please write a message before sending.</div>
+                <div class="char-counter text-end mt-1"><span id="charCount">0</span> / 500 characters</div>
+              </div>
+            </div>
+            
+            <!-- Submit button with loading state styling (interactive) -->
+            <div class="d-grid gap-2 d-md-block mt-4">
+              <button type="submit" class="btn btn-submit btn-lg px-5" id="submitBtn">
+                <i class="fas fa-paper-plane me-2"></i> Send Message
+              </button>
+            </div>
+            
+            <!-- Success message alert (hidden initially) - will be shown on form submission simulation -->
+            <div id="successAlert" class="alert alert-success mt-4 d-flex align-items-center" role="alert" style="display: none;">
+              <i class="fas fa-check-circle me-2 fs-5"></i>
+              <div><strong>Message sent!</strong> Thank you for contacting us. We'll get back to you within 24 hours.</div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <!-- RIGHT COLUMN: Contact Information + Map + Socials -->
+      <div class="col-lg-6 col-md-12">
+        <div class="card-contact p-4 p-xl-5 h-100">
+          <div class="d-flex align-items-center gap-2 mb-4">
+            <i class="fas fa-address-card fs-3" style="color: #1e5a72;"></i>
+            <h3 class="h3 fw-semibold mb-0">Contact Information</h3>
+          </div>
+          
+          <!-- Physical address with icon -->
+          <div class="info-item d-flex align-items-start mb-3">
+            <div class="me-3 mt-1" style="min-width: 40px;"><i class="fas fa-map-marker-alt fa-lg" style="color: #1e5a72;"></i></div>
+            <div>
+              <h5 class="fw-bold mb-1">Visit Us</h5>
+              <p class="mb-0 text-secondary">1234 Innovation Avenue, Suite 100<br>San Francisco, CA 94103, USA</p>
+            </div>
+          </div>
+          
+          <!-- Phone number(s) with click-to-call functionality -->
+          <div class="info-item d-flex align-items-start mb-3">
+            <div class="me-3 mt-1" style="min-width: 40px;"><i class="fas fa-phone-volume fa-lg" style="color: #1e5a72;"></i></div>
+            <div>
+              <h5 class="fw-bold mb-1">Call Us</h5>
+              <p class="mb-0">
+                <a href="tel:+12125551234" class="text-decoration-none text-secondary fw-medium"><i class="fas fa-mobile-alt me-1"></i> +1 (212) 555-1234</a><br>
+                <a href="tel:+18005551234" class="text-decoration-none text-secondary fw-medium"><i class="fas fa-phone me-1"></i> Toll Free: +1 (800) 555-1234</a>
+              </p>
+            </div>
+          </div>
+          
+          <!-- Email address with mailto link -->
+          <div class="info-item d-flex align-items-start mb-4">
+            <div class="me-3 mt-1" style="min-width: 40px;"><i class="fas fa-envelope fa-lg" style="color: #1e5a72;"></i></div>
+            <div>
+              <h5 class="fw-bold mb-1">Email Us</h5>
+              <p class="mb-0">
+                <a href="mailto:hello@company.com" class="text-decoration-none text-secondary">hello@company.com</a><br>
+                <a href="mailto:support@company.com" class="text-decoration-none text-secondary">support@company.com</a>
+              </p>
+            </div>
+          </div>
+          
+          <!-- Embedded Google Map placeholder (professional, can be replaced with actual iframe) -->
+          <div class="mb-4">
+            <h5 class="fw-bold mb-2"><i class="fas fa-location-dot me-1"></i> Our Location</h5>
+            <div class="map-placeholder d-flex flex-column justify-content-center align-items-center text-center">
+              <!-- Interactive placeholder: could embed iframe, but we simulate with design -->
+              <i class="fas fa-map-marked-alt fs-3 mb-2"></i>
+              <span class="small fw-semibold">🗺️ Interactive Map Preview</span>
+              <span class="small text-muted">1234 Innovation Ave, SF</span>
+              <!-- You can replace this with actual Google Maps embed -->
+            </div>
+            <!-- Optional note: actual embed possible. but for demo we show a clean placeholder -->
+          </div>
+          
+          <!-- Social media links with appropriate icons (hover effects) -->
+          <div>
+            <h5 class="fw-bold mb-3"><i class="fas fa-share-alt me-1"></i> Connect With Us</h5>
+            <div class="d-flex gap-3 flex-wrap">
+              <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="text-muted small mt-3">Follow us for updates, news, and behind-the-scenes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- extra decorative spacing -->
+    <div class="text-center mt-5 small text-secondary">
+      <i class="fas fa-shield-alt me-1"></i> Your privacy is important. We never share your data.
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle (for interactive components, but not mandatory for validation, we use custom) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    (function() {
+      // DOM elements
+      const form = document.getElementById('contactForm');
+      const fullNameInput = document.getElementById('fullName');
+      const emailInput = document.getElementById('emailAddress');
+      const messageInput = document.getElementById('message');
+      const submitBtn = document.getElementById('submitBtn');
+      const successAlert = document.getElementById('successAlert');
+      const charCountSpan = document.getElementById('charCount');
+      
+      // Helper function to update character counter
+      function updateCharCounter() {
+        const currentLength = messageInput.value.length;
+        charCountSpan.textContent = currentLength;
+        // Optional: style when near limit, but not necessary
+        if (currentLength >= 480) {
+          charCountSpan.style.color = "#e67e22";
+        } else {
+          charCountSpan.style.color = "#5f6c7a";
+        }
+      }
+      
+      // Real-time character counter
+      messageInput.addEventListener('input', updateCharCounter);
+      updateCharCounter(); // initial
+      
+      // Reset validation states & hide any old success message before new attempt
+      function resetFormValidation() {
+        // remove bootstrap validation classes and custom states
+        form.classList.remove('was-validated');
+        [fullNameInput, emailInput, messageInput].forEach(field => {
+          field.classList.remove('is-valid', 'is-invalid');
+        });
+        // hide success alert if visible
+        if (successAlert) successAlert.style.display = 'none';
+      }
+      
+      // show loading state on button
+      function setLoadingState(isLoading) {
+        if (isLoading) {
+          submitBtn.classList.add('loading');
+          // change button content temporarily (keep width)
+          const originalHTML = submitBtn.innerHTML;
+          submitBtn.setAttribute('data-original-text', originalHTML);
+          submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Sending...';
+          submitBtn.disabled = true;
+        } else {
+          submitBtn.classList.remove('loading');
+          const originalText = submitBtn.getAttribute('data-original-text');
+          if (originalText) {
+            submitBtn.innerHTML = originalText;
+          } else {
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i> Send Message';
+          }
+          submitBtn.disabled = false;
+        }
+      }
+      
+      // custom validation logic using Bootstrap 5 validation classes (real-time)
+      function validateField(field, validationType) {
+        let isValid = true;
+        let value = field.value.trim();
+        if (validationType === 'name') {
+          if (value === "") isValid = false;
+        } else if (validationType === 'email') {
+          const emailPattern = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
+          if (value === "" || !emailPattern.test(value)) isValid = false;
+        } else if (validationType === 'message') {
+          if (value === "") isValid = false;
+        }
+        // set bootstrap valid/invalid classes
+        if (isValid) {
+          field.classList.remove('is-invalid');
+          field.classList.add('is-valid');
+        } else {
+          field.classList.remove('is-valid');
+          field.classList.add('is-invalid');
+        }
+        return isValid;
+      }
+      
+      // attach real-time validation events (for better UX)
+      fullNameInput.addEventListener('input', function() { validateField(fullNameInput, 'name'); });
+      emailInput.addEventListener('input', function() { validateField(emailInput, 'email'); });
+      messageInput.addEventListener('input', function() { validateField(messageInput, 'message'); });
+      
+      // On form submit: client-side validation + simulated success message
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();  // prevent actual page reload
+        event.stopPropagation();
+        
+        // reset any previous alert visibility
+        successAlert.style.display = 'none';
+        
+        // run validation on all required fields
+        const isNameValid = validateField(fullNameInput, 'name');
+        const isEmailValid = validateField(emailInput, 'email');
+        const isMessageValid = validateField(messageInput, 'message');
+        
+        const isFormValid = isNameValid && isEmailValid && isMessageValid;
+        
+        // Add was-validated class to show bootstrap style feedback globally
+        form.classList.add('was-validated');
+        
+        if (!isFormValid) {
+          // scroll to first invalid field for better UX
+          const firstInvalid = [fullNameInput, emailInput, messageInput].find(f => f.classList.contains('is-invalid'));
+          if (firstInvalid) {
+            firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstInvalid.focus();
+          }
+          return;
+        }
+        
+        // FORM IS VALID: Simulate loading and submission (demo)
+        setLoadingState(true);
+        
+        // Simulate network request (1.2 seconds)
+        setTimeout(() => {
+          setLoadingState(false);
+          
+          // display success message alert
+          successAlert.style.display = 'flex';
+          
+          successAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          
+  
+        }, 1200);
+      });
+      
+      // additional manual style: ensure phone is optional, no validation needed
+      // Ensure default state is clean on page load
+      resetFormValidation();
+      
+      // optional: provide a nice effect: if user starts typing, remove success alert?
+      const formInputs = [fullNameInput, emailInput, messageInput];
+      formInputs.forEach(input => {
+        input.addEventListener('focus', () => {
+          if (successAlert.style.display === 'flex') {
+            // optionally hide success alert when user edits again? but not necessary, but good UX
+            // successAlert.style.display = 'none';
+          }
+        });
+      });
+      
+      // Also we need to handle email validation on blur to give instant feedback
+      emailInput.addEventListener('blur', function() { validateField(emailInput, 'email'); });
+      fullNameInput.addEventListener('blur', function() { validateField(fullNameInput, 'name'); });
+      messageInput.addEventListener('blur', function() { validateField(messageInput, 'message'); });
+      
+      // Ensure map placeholder hover effect (just design)
+      // No extra code needed
+    })();
+  </script>
+ 
+</body>
+</html>
