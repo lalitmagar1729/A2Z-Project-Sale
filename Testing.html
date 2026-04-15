@@ -1,0 +1,2517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>About Us | Modern Corporate Company</title>
+  <!-- Bootstrap 5.3 CSS + Icons + Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Fonts: Poppins (headings) + Open Sans (body) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #212529;
+      background-color: #ffffff;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    .navbar-brand,
+    .btn,
+    .counter-value,
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Custom color scheme */
+    :root {
+      --navy: #0d2c54;
+      --teal: #17a2b8;
+      --coral: #ff6b35;
+      --light-bg: #f8f9fa;
+      --dark-text: #212529;
+    }
+
+    /* Navbar transition */
+    .navbar {
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      background-color: transparent;
+    }
+
+    .navbar.scrolled {
+      background-color: var(--navy) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: -0.5px;
+      color: white !important;
+    }
+
+    .navbar-nav .nav-link {
+      font-weight: 500;
+      color: white !important;
+      margin-left: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: var(--coral) !important;
+    }
+
+    .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* Hero section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(13, 44, 84, 0.75), rgba(13, 44, 84, 0.85)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-content {
+      animation: fadeInUp 1s ease-out;
+      max-width: 800px;
+      padding: 0 1.5rem;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+      animation: bounce 2s infinite;
+      color: white;
+      font-size: 2rem;
+      transition: opacity 0.3s;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(12px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        height: 70vh;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Left border accent */
+    .story-text {
+      border-left: 5px solid var(--coral);
+      padding-left: 1.8rem;
+    }
+
+    /* Section titles */
+    .section-title {
+      font-weight: 700;
+      color: var(--navy);
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+
+    .section-title:after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background: var(--coral);
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      border-radius: 3px;
+    }
+
+    /* Stats cards */
+    .stat-card {
+      border: none;
+      border-radius: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
+      text-align: center;
+      padding: 1.2rem 0.5rem;
+      cursor: default;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12);
+    }
+
+    .stat-icon {
+      font-size: 2.8rem;
+      color: var(--teal);
+      margin-bottom: 1rem;
+    }
+
+    .counter-value {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    /* Team cards */
+    .team-card {
+      border: none;
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .team-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .team-img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 4px solid var(--teal);
+      padding: 0.2rem;
+    }
+
+    .social-icons a {
+      color: var(--navy);
+      font-size: 1.3rem;
+      margin: 0 0.5rem;
+      transition: color 0.2s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--coral);
+    }
+
+    /* Core values cards (clean no border) */
+    .value-card {
+      background: var(--light-bg);
+      padding: 2rem 1.2rem;
+      border-radius: 1.2rem;
+      transition: all 0.3s ease;
+      text-align: center;
+      height: 100%;
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      background: white;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .value-icon {
+      font-size: 3rem;
+      color: var(--teal);
+      margin-bottom: 1rem;
+      transition: color 0.3s;
+    }
+
+    .value-card:hover .value-icon {
+      color: var(--coral);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #0d2c54 0%, #1a4a7a 100%);
+      color: white;
+      border-radius: 0;
+    }
+
+    .btn-primary-custom {
+      background-color: var(--coral);
+      border-color: var(--coral);
+      padding: 0.7rem 2rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-primary-custom:hover {
+      background-color: #e05a2a;
+      border-color: #e05a2a;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-custom {
+      border: 2px solid white;
+      background: transparent;
+      color: white;
+      padding: 0.7rem 2rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-outline-custom:hover {
+      background-color: white;
+      color: var(--navy);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background-color: #0d2c54;
+      color: #ccc;
+    }
+
+    footer a {
+      color: #17a2b8;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #ff6b35;
+    }
+
+    @media (max-width: 576px) {
+      .stat-card {
+        margin-bottom: 1rem;
+      }
+
+      .team-img {
+        width: 110px;
+        height: 110px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar (sticky, transparent to solid on scroll) -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#">NEXUS<span style="color:#ff6b35;">CORP</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section with fade-in animation -->
+    <header class="hero" id="homeHero">
+      <div class="hero-content">
+        <h1 class="display-3 fw-bold">About Our Company</h1>
+        <p class="lead mt-3 mb-4">Empowering innovation, delivering excellence — your trusted partner in digital
+          transformation.</p>
+        <div class="mt-4">
+          <a href="#story" class="btn btn-lg btn-outline-light rounded-pill px-4">Discover our story</a>
+        </div>
+      </div>
+      <div class="scroll-indicator" aria-label="Scroll down">
+        <i class="bi bi-chevron-down"></i>
+      </div>
+    </header>
+
+    <!-- Company Story / Introduction Section -->
+    <section id="story" class="py-5 my-4">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <!-- Left column: text with left border accent -->
+          <div class="col-lg-6">
+            <div class="story-text">
+              <span class="badge bg-secondary mb-3" style="background-color: var(--teal) !important;">Our Legacy</span>
+              <h2 class="section-title">Building tomorrow, together</h2>
+              <p class="mt-3">Founded in 2014, NexusCorp started as a small team of passionate engineers with a vision
+                to reshape digital experiences. Over the last decade, we've grown into a full-service agency that blends
+                strategy, design, and technology to help businesses thrive in a connected world.</p>
+              <p>Our mission is to deliver transformative solutions that create lasting impact. We believe in pushing
+                boundaries, embracing challenges, and putting people at the heart of everything we do. Integrity,
+                curiosity, and collaboration are the pillars that guide us daily.</p>
+              <p><strong>Core values:</strong> relentless innovation, unwavering integrity, and a commitment to
+                excellence — empowering our clients to achieve more.</p>
+            </div>
+          </div>
+          <!-- Right column: illustrative image -->
+          <div class="col-lg-6">
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+              alt="Team collaborating" class="img-fluid rounded-4 shadow-lg"
+              style="max-height: 450px; width: 100%; object-fit: cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics / Highlights Section with animated counters -->
+    <section class="py-5 bg-light" id="statsSection">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title" style="display: inline-block;">Impact in numbers</h2>
+        </div>
+        <div class="row g-4">
+          <!-- Stat 1 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="stat-card">
+              <i class="bi bi-calendar-check stat-icon"></i>
+              <div class="counter-value" data-target="10">0</div>
+              <p class="fw-bold mb-0">+ Years in Business</p>
+              <small class="text-muted">Since 2014</small>
+            </div>
+          </div>
+          <!-- Stat 2 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="stat-card">
+              <i class="bi bi-emoji-smile stat-icon"></i>
+              <div class="counter-value" data-target="500">0</div>
+              <p class="fw-bold mb-0">+ Happy Clients</p>
+              <small class="text-muted">worldwide</small>
+            </div>
+          </div>
+          <!-- Stat 3 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="stat-card">
+              <i class="bi bi-briefcase-fill stat-icon"></i>
+              <div class="counter-value" data-target="1200">0</div>
+              <p class="fw-bold mb-0">+ Projects Completed</p>
+              <small class="text-muted">successful delivery</small>
+            </div>
+          </div>
+          <!-- Stat 4 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="stat-card">
+              <i class="bi bi-people-fill stat-icon"></i>
+              <div class="counter-value" data-target="50">0</div>
+              <p class="fw-bold mb-0">+ Team Members</p>
+              <small class="text-muted">creative experts</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section (responsive grid) -->
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title" style="display: inline-block;">Meet our leadership</h2>
+          <p class="lead text-muted mt-2">The brilliant minds behind our success</p>
+        </div>
+        <div class="row g-4">
+          <!-- Team member 1 -->
+          <div class="col-sm-6 col-md-6 col-lg-3">
+            <div class="team-card">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sarah Johnson" class="team-img">
+              <h5 class="fw-bold mt-2">Sarah Johnson</h5>
+              <p class="text-muted">CEO & Founder</p>
+              <p class="small">Visionary leader with 15+ years in tech innovation, driving sustainable growth.</p>
+              <div class="social-icons">
+                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Team member 2 -->
+          <div class="col-sm-6 col-md-6 col-lg-3">
+            <div class="team-card">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="team-img">
+              <h5 class="fw-bold mt-2">Michael Chen</h5>
+              <p class="text-muted">CTO</p>
+              <p class="small">Architect of scalable solutions, passionate about AI and future-ready systems.</p>
+              <div class="social-icons">
+                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Team member 3 -->
+          <div class="col-sm-6 col-md-6 col-lg-3">
+            <div class="team-card">
+              <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Elena Rodriguez" class="team-img">
+              <h5 class="fw-bold mt-2">Elena Rodriguez</h5>
+              <p class="text-muted">Creative Director</p>
+              <p class="small">Award-winning designer blending aesthetics with user-centric strategies.</p>
+              <div class="social-icons">
+                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Team member 4 -->
+          <div class="col-sm-6 col-md-6 col-lg-3">
+            <div class="team-card">
+              <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Okafor" class="team-img">
+              <h5 class="fw-bold mt-2">David Okafor</h5>
+              <p class="text-muted">Head of Strategy</p>
+              <p class="small">Driving business transformation and forging client partnerships worldwide.</p>
+              <div class="social-icons">
+                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values Section (3 columns, clean cards) -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title" style="display: inline-block;">Our guiding principles</h2>
+          <p class="lead text-muted mt-2">What makes us different</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="value-card h-100">
+              <i class="bi bi-lightbulb-fill value-icon"></i>
+              <h4 class="fw-bold">Innovation</h4>
+              <p>We embrace emerging technologies and fresh ideas to solve complex challenges, constantly iterating to
+                stay ahead of the curve.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="value-card h-100">
+              <i class="bi bi-shield-check value-icon"></i>
+              <h4 class="fw-bold">Integrity</h4>
+              <p>Transparency and ethics are at our core. We build trust with clients and partners through honest
+                communication and accountability.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="value-card h-100">
+              <i class="bi bi-trophy-fill value-icon"></i>
+              <h4 class="fw-bold">Excellence</h4>
+              <p>We strive for quality in every project, no matter the scale. Our dedication to craftsmanship yields
+                results that exceed expectations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="cta-section py-5 my-4">
+      <div class="container text-center py-5">
+        <h2 class="display-5 fw-bold">Ready to elevate your business?</h2>
+        <p class="lead my-3 mx-auto" style="max-width: 600px;">Let's collaborate to turn your vision into reality. Reach
+          out today and let’s build something extraordinary.</p>
+        <div class="mt-4 d-flex flex-wrap gap-3 justify-content-center">
+          <a href="#" class="btn btn-primary-custom btn-lg rounded-pill px-5">Contact Us</a>
+          <a href="#" class="btn btn-outline-custom btn-lg rounded-pill px-5">Our Services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Simple Footer -->
+  <footer class="pt-5 pb-4">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-4">
+          <h5 class="text-white mb-3">NEXUS<span style="color:#ff6b35;">CORP</span></h5>
+          <p class="small">Modern solutions, timeless impact. We partner with businesses to drive digital growth.</p>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-white">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-white">Connect</h5>
+          <div class="d-flex gap-3">
+            <a href="#" class="text-white-50"><i class="bi bi-facebook fs-5"></i></a>
+            <a href="#" class="text-white-50"><i class="bi bi-twitter-x fs-5"></i></a>
+            <a href="#" class="text-white-50"><i class="bi bi-linkedin fs-5"></i></a>
+            <a href="#" class="text-white-50"><i class="bi bi-instagram fs-5"></i></a>
+          </div>
+          <p class="mt-3 small mb-0">© 2025 NexusCorp. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS bundle + Custom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      // =================== 1. Navbar background transition on scroll ===================
+      const navbar = document.getElementById('mainNavbar');
+      function handleNavbarScroll() {
+        if (window.scrollY > 30) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', handleNavbarScroll);
+      handleNavbarScroll(); // initial check
+
+      // =================== 2. Smooth scroll for navigation links & scroll indicator ===================
+      const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .scroll-indicator, .btn-outline-light');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          // if the link is a hash link (anchor) or we target an element
+          let targetId = null;
+          if (this.classList.contains('scroll-indicator')) {
+            targetId = '#story';
+          } else if (this.getAttribute('href') === '#story') {
+            targetId = '#story';
+          } else if (this.getAttribute('href') === '#') {
+            // if just home or dummy, optionally scroll top? we handle home smooth scroll to hero
+            if (this.innerText.trim() === 'Home') {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              return;
+            }
+          } else if (this.getAttribute('href') && this.getAttribute('href').startsWith('#')) {
+            targetId = this.getAttribute('href');
+          }
+          if (targetId && targetId !== '#') {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              e.preventDefault();
+              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+
+      // optional: additional handling for "Discover our story" button from hero
+      const storyBtn = document.querySelector('.btn-outline-light[href="#story"]');
+      if (storyBtn) {
+        storyBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector('#story').scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+
+      // =================== 3. Animated Counters with Intersection Observer ===================
+      const counterElements = document.querySelectorAll('.counter-value');
+      let countersStarted = false;
+      let observer = null;
+
+      function animateNumbers() {
+        counterElements.forEach(counter => {
+          const target = parseInt(counter.getAttribute('data-target'), 10);
+          if (isNaN(target)) return;
+          let current = 0;
+          const increment = Math.ceil(target / 50); // smooth increment
+          const updateCounter = () => {
+            current += increment;
+            if (current >= target) {
+              counter.innerText = target.toLocaleString();
+              return;
+            }
+            counter.innerText = current.toLocaleString();
+            requestAnimationFrame(() => setTimeout(updateCounter, 15));
+          };
+          updateCounter();
+        });
+      }
+
+      // Intersection Observer for stats section
+      const statsSection = document.getElementById('statsSection');
+      if (statsSection && !countersStarted) {
+        observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !countersStarted) {
+              countersStarted = true;
+              animateNumbers();
+              observer.unobserve(statsSection); // stop observing after start
+            }
+          });
+        }, { threshold: 0.4 });
+        observer.observe(statsSection);
+      } else {
+        // fallback: if counters exist but no observer, trigger after small delay (but we want scroll)
+        if (counterElements.length) {
+          // just fallback: check on load if visible
+          const rect = statsSection?.getBoundingClientRect();
+          if (rect && rect.top < window.innerHeight - 100) {
+            setTimeout(() => { if (!countersStarted) { countersStarted = true; animateNumbers(); } }, 300);
+          }
+        }
+      }
+
+      // =================== 4. Optional Hover effect handled via CSS ===================
+      // additional smooth behavior: ensure cards already have hover lift via CSS.
+      // Also ensure navbar toggler collapse close after clicking (optional)
+      const navCollapse = document.querySelector('.navbar-collapse');
+      const navItems = document.querySelectorAll('.navbar-nav .nav-link');
+      navItems.forEach(item => {
+        item.addEventListener('click', () => {
+          if (navCollapse.classList.contains('show')) {
+            new bootstrap.Collapse(navCollapse).toggle();
+          }
+        });
+      });
+
+      // Preload / if some counters not started but visible quickly on load
+      window.addEventListener('load', function () {
+        if (!countersStarted && statsSection) {
+          const rect = statsSection.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 50) {
+            countersStarted = true;
+            animateNumbers();
+            if (observer) observer.unobserve(statsSection);
+          }
+        }
+        // fallback: manual visibility check after load
+        if (!countersStarted && statsSection && window.scrollY + window.innerHeight > statsSection.offsetTop) {
+          countersStarted = true;
+          animateNumbers();
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>About | DevMarket – Developer Marketplace Platform</title>
+  <!-- Bootstrap 5 CSS + Icons + Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons (clean icon library) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Fonts: Inter + Poppins (modern sans) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <!-- AOS (Animate on Scroll) Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .heading-font {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    /* modern color palette: deep navy primary, teal accent, coral hover */
+    :root {
+      --navy: #0a2540;
+      --navy-dark: #051a2c;
+      --teal: #20b2aa;
+      --teal-light: #3bc9c0;
+      --coral: #f9735c;
+      --coral-hover: #ff855f;
+      --gray-bg: #f8fafc;
+      --card-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.07), 0 2px 6px rgba(0, 0, 0, 0.03);
+      --hover-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.12);
+    }
+
+    /* section spacing */
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    @media (max-width: 768px) {
+      .section-padding {
+        padding: 56px 0;
+      }
+    }
+
+    /* Buttons */
+    .btn-primary-custom {
+      background: linear-gradient(105deg, var(--navy) 0%, #1f4a6e 100%);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 40px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .btn-primary-custom:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(105deg, #0f3b58 0%, #226b8f 100%);
+      box-shadow: 0 15px 25px -8px rgba(32, 178, 170, 0.3);
+    }
+
+    .btn-outline-accent {
+      border: 2px solid var(--teal);
+      background: transparent;
+      color: var(--navy);
+      font-weight: 600;
+      padding: 10px 26px;
+      border-radius: 40px;
+      transition: all 0.2s;
+    }
+
+    .btn-outline-accent:hover {
+      background-color: var(--teal);
+      color: white;
+      border-color: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    .btn-accent-solid {
+      background-color: var(--coral);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 40px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-accent-solid:hover {
+      background-color: var(--coral-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -6px rgba(249, 115, 92, 0.4);
+    }
+
+    /* Cards */
+    .feature-card,
+    .testimonial-card {
+      background: white;
+      border-radius: 20px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      height: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--hover-shadow);
+    }
+
+    .icon-circle {
+      background: #eef9ff;
+      width: 56px;
+      height: 56px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .icon-circle i {
+      font-size: 28px;
+      color: var(--teal);
+    }
+
+    /* stats section */
+    .stat-card {
+      background: white;
+      border-radius: 28px;
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+      border: 1px solid #eef2f6;
+      transition: all 0.2s;
+    }
+
+    .stat-number {
+      font-size: 2.7rem;
+      font-weight: 800;
+      font-family: 'Poppins', monospace;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #4b5565;
+    }
+
+    /* Trust & security badges */
+    .badge-trust {
+      background: #f1f5f9;
+      border-radius: 50px;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #0f172a;
+    }
+
+    .security-logos img {
+      height: 32px;
+      margin: 0 8px;
+      filter: grayscale(0.1);
+      transition: filter 0.2s;
+    }
+
+    /* hero gradient */
+    .hero-gradient {
+      background: linear-gradient(135deg, #fafcff 0%, #f2f7fc 100%);
+      border-bottom: 1px solid rgba(32, 178, 170, 0.15);
+    }
+
+    /* testimonial carousel controls */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: var(--teal);
+      border-radius: 50%;
+      padding: 1.2rem;
+      background-size: 50%;
+    }
+
+    .testimonial-card {
+      margin: 0 0.5rem;
+    }
+
+    .star-rating i {
+      color: #ffb83b;
+      margin-right: 2px;
+    }
+
+    footer {
+      background-color: var(--navy-dark);
+      color: #cddfe7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .social-icon {
+      background: rgba(255, 255, 255, 0.12);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    .social-icon:hover {
+      background: var(--teal);
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO / HEADER SECTION -->
+  <section class="hero-gradient pt-5 pb-5">
+    <div class="container pt-4 pb-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7" data-aos="fade-right" data-aos-duration="800">
+          <span class="badge bg-teal bg-opacity-10 text-teal px-3 py-2 rounded-pill mb-3"
+            style="background:#e2f0f0; color:#0f5c5a;">✨ Developer-first ecosystem</span>
+          <h1 class="display-4 fw-bold mb-3" style="color: #0a2540;">DevMarket<span style="color: #20b2aa;">.</span>
+          </h1>
+          <p class="lead fw-semibold text-secondary">Our story began in a messy GitHub repository — two co-founders
+            tired of rebuilding login systems, dashboards, and payment integrations for the tenth time. We believed
+            developers deserved a trustworthy place to share battle-tested code and earn from their craft.</p>
+          <div class="mt-4">
+            <p class="fs-5 fw-medium"><i class="bi bi-megaphone-fill text-teal me-2"></i> <strong>Mission:</strong> We
+              help developers monetize their work and help buyers build faster.</p>
+            <p class="text-muted">🚫 Problem: Developers waste 70% of their time rebuilding common solutions — auth, UI
+              kits, API wrappers. ⚡ <strong>Vision:</strong> A global ecosystem where every developer becomes a creator
+              and every buyer ships products in hours, not months.</p>
+          </div>
+          <div class="mt-4 d-flex flex-wrap gap-3">
+            <a href="#" class="btn btn-primary-custom">Browse Projects <i class="bi bi-arrow-right ms-1"></i></a>
+            <a href="#" class="btn btn-outline-accent">Start Selling <i class="bi bi-rocket-takeoff ms-1"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-5 text-center" data-aos="fade-left" data-aos-duration="800">
+          <img src="https://placehold.co/550x400/eef2ff/0a2540?text=Marketplace+Illustration&font=montserrat"
+            alt="DevMarket platform illustration showing developers collaborating" class="img-fluid rounded-4 shadow-sm"
+            style="max-width:100%">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST-BUILDING STATS SECTION (animated counters on scroll) -->
+  <section class="section-padding" style="background-color: #ffffff;">
+    <div class="container">
+      <div class="row g-4 text-center" id="statsRow">
+        <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100">
+          <div class="stat-card">
+            <i class="bi bi-code-square fs-1" style="color: var(--teal);"></i>
+            <div class="stat-number mt-3"><span class="counter" data-target="1240">0</span>+</div>
+            <div class="stat-label">Premium Projects</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200">
+          <div class="stat-card">
+            <i class="bi bi-people fs-1" style="color: var(--teal);"></i>
+            <div class="stat-number mt-3"><span class="counter" data-target="18500">0</span>+</div>
+            <div class="stat-label">Active Devs & Buyers</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300">
+          <div class="stat-card">
+            <i class="bi bi-layers fs-1" style="color: var(--teal);"></i>
+            <div class="stat-number mt-3"><span class="counter" data-target="24">0</span>+</div>
+            <div class="stat-label">Tech Stacks (React, Node, PHP, Python, Vue, .NET ...)</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="400">
+          <div class="stat-card">
+            <i class="bi bi-cloud-download fs-1" style="color: var(--teal);"></i>
+            <div class="stat-number mt-3"><span class="counter" data-target="47920">0</span>+</div>
+            <div class="stat-label">Downloads / Happy Customers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US SECTION (4 columns) -->
+  <section class="section-padding" style="background-color: #f8fafc;">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold" style="color: #0a2540;">Why choose DevMarket?</h2>
+        <p class="lead text-secondary">Built by developers, for developers — quality and speed guaranteed.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-card">
+            <div class="icon-circle"><i class="bi bi-star-fill"></i></div>
+            <h4 class="h5 fw-bold">Curated & Quality Reviewed</h4>
+            <p class="text-muted">Every code snippet, template, and library passes manual review by senior engineers. No
+              half-baked scripts.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+          <div class="feature-card">
+            <div class="icon-circle"><i class="bi bi-lightning-charge-fill"></i></div>
+            <h4 class="h5 fw-bold">Secure Instant Delivery</h4>
+            <p class="text-muted">Instant download & license generation after purchase. Zero waiting, encrypted file
+              storage.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-card">
+            <div class="icon-circle"><i class="bi bi-credit-card-2-front"></i></div>
+            <h4 class="h5 fw-bold">Multiple Payment Options</h4>
+            <p class="text-muted">Stripe, PayPal, Razorpay — global & local payment methods. Get paid in 30+ currencies.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
+          <div class="feature-card">
+            <div class="icon-circle"><i class="bi bi-chat-dots-fill"></i></div>
+            <h4 class="h5 fw-bold">Active Developer Community</h4>
+            <p class="text-muted">Join forums, Discord support, and monthly hackathons. Collaborate & grow together.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST & SECURITY SECTION -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h2 class="fw-bold mb-4" style="color: #0a2540;"><i class="bi bi-shield-lock-fill text-teal me-2"></i> Trust &
+            Security first</h2>
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <span class="badge-trust"><i class="bi bi-patch-check-fill text-teal"></i> SSL Secured Platform</span>
+            <span class="badge-trust"><i class="bi bi-arrow-return-left"></i> 30-Day Money-Back Guarantee</span>
+            <span class="badge-trust"><i class="bi bi-verified"></i> Verified Seller Badges</span>
+            <span class="badge-trust"><i class="bi bi-file-code"></i> Project Quality Verified</span>
+          </div>
+          <p class="text-secondary">Every transaction is protected with 256-bit SSL encryption. If a project doesn't
+            meet your expectations, we offer a full refund within 30 days. Our verification process ensures that only
+            top-tier developers earn the "Verified" badge.</p>
+          <div class="security-logos mt-4 d-flex align-items-center gap-3 flex-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/stripe/stripe-original.svg" alt="Stripe logo"
+              style="height: 30px; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/paypal/paypal-original.svg" alt="PayPal"
+              style="height: 30px;">
+            <span class="fw-semibold text-muted">Razorpay</span>
+            <i class="bi bi-shield-check fs-3 text-teal"></i>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center" data-aos="fade-left">
+          <img src="https://placehold.co/500x400/FFFFFF/0a2540?text=Security+Badges+%26+Trust+Center"
+            alt="Trust and security badges, payment protection illustration" class="img-fluid rounded-4 shadow-sm">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION (carousel or grid: using carousel for elegant interaction) -->
+  <section class="section-padding" style="background: #fefcf9;">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold" style="color:#0a2540;">What developers say 💬</h2>
+        <p class="lead text-secondary">Join 18k+ builders who accelerated their workflow</p>
+      </div>
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-8">
+                <div class="testimonial-card text-center p-4">
+                  <div class="star-rating mb-3">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p class="fs-5 fst-italic">"DevMarket saved me at least 3 weeks of building a custom admin dashboard
+                    from scratch. The React + Node boilerplate was clean, documented, and saved my client project.
+                    Absolute lifesaver."</p>
+                  <h5 class="fw-bold mb-1">Priya Mehta</h5>
+                  <p class="text-muted">Freelance Full-stack Developer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-8">
+                <div class="testimonial-card text-center p-4">
+                  <div class="star-rating mb-3">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p class="fs-5 fst-italic">"As a solo entrepreneur, I needed reliable payment integrations without
+                    weeks of coding. I purchased a Stripe + Laravel package and had it live in 2 days. The seller
+                    support was amazing!"</p>
+                  <h5 class="fw-bold mb-1">Carlos Rivera</h5>
+                  <p class="text-muted">SaaS Founder</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-8">
+                <div class="testimonial-card text-center p-4">
+                  <div class="star-rating mb-3">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p class="fs-5 fst-italic">"I earned $3,200 in my first month selling my Vue.js component library. The
+                    marketplace makes it effortless to reach buyers globally. Highly recommend for devs wanting to
+                    monetize."</p>
+                  <h5 class="fw-bold mb-1">Aisha Ndlovu</h5>
+                  <p class="text-muted">Seller & Open Source Maintainer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / CTA SECTION -->
+  <section class="section-padding" style="background: linear-gradient(110deg, #0a2540 0%, #123e5e 100%); color: white;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7" data-aos="fade-right">
+          <h2 class="fw-bold display-6">Ready to build faster or share your code?</h2>
+          <p class="fs-5 mt-3 opacity-90">Get support within 24 hours. Our developer relations team is here for you.</p>
+          <div class="mt-4">
+            <a href="mailto:support@devmarket.io" class="text-white fs-5 me-4"><i class="bi bi-envelope-fill me-2"></i>
+              support@devmarket.io</a>
+            <div class="mt-4 d-flex gap-3">
+              <a href="#" class="social-icon"><i class="bi bi-github"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="d-flex flex-wrap gap-3 mt-5">
+            <a href="#" class="btn btn-accent-solid px-5 py-3">Browse Projects <i
+                class="bi bi-grid-3x3-gap-fill ms-1"></i></a>
+            <a href="#" class="btn btn-outline-light px-5 py-3">Start Selling <i class="bi bi-cart-plus ms-1"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-5 text-center" data-aos="fade-left">
+          <i class="bi bi-chat-square-quote fs-1 text-teal"></i>
+          <p class="mt-3 fw-light">"We’ve powered over 47k+ successful downloads — join the movement."</p>
+          <img src="https://placehold.co/300x180/f0f7ff/0a2540?text=CTA+illustration" alt="Community illustration"
+            class="img-fluid rounded-3 mt-2 opacity-90">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-5 text-center text-md-start">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5 class="fw-bold mb-3">DevMarket</h5>
+          <p class="small opacity-75">Empowering developers to share, earn, and build faster.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="small mb-0">© 2025 DevMarket — Trusted by 18,500+ developers worldwide</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- scripts: Bootstrap, AOS, custom counter animation on scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+    });
+
+    // animated counter on scroll using intersection observer
+    const counters = document.querySelectorAll('.counter');
+    let started = false; // ensure counts only once
+
+    function startCounters() {
+      counters.forEach(counter => {
+        const updateCount = () => {
+          const target = parseInt(counter.getAttribute('data-target'));
+          let current = parseInt(counter.innerText);
+          const increment = target / 80; // smooth animation
+          if (current < target) {
+            current = Math.min(current + Math.ceil(increment), target);
+            counter.innerText = current;
+            setTimeout(updateCount, 15);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        if (parseInt(counter.innerText) === 0) updateCount();
+      });
+    }
+
+    // Observer for stats section
+    const statsSection = document.getElementById('statsRow');
+    if (statsSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            startCounters();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      observer.observe(statsSection);
+    } else {
+      // fallback if no stats row
+      startCounters();
+    }
+
+    // ensure any manual fixes for numbers if needed (no default)
+    document.querySelectorAll('.counter').forEach(el => {
+      if (!el.innerText || el.innerText === '0') el.innerText = '0';
+    });
+
+    // additional smooth scroll for any anchor
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== "#" && href !== "#" && href !== "") {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO / Primary meta -->
+  <title>About • DevMart — Developer Marketplace</title>
+  <meta name="description"
+    content="Trusted marketplace for high‑quality source code. Developers monetize, builders ship faster.">
+
+  <!-- Bootstrap 5 + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Fonts: Inter (clean sans‑serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+    rel="stylesheet">
+
+  <!-- AOS (Animate On Scroll) for fade‑in effects -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #fafcff;
+      color: #1e293b;
+      scroll-behavior: smooth;
+      /* smooth scroll for anchor links */
+    }
+
+    /* Modern palette: deep navy + teal accent */
+    :root {
+      --navy-deep: #0b1e33;
+      --navy-light: #1a314a;
+      --teal-accent: #0f9d9a;
+      --teal-soft: #14b8a6;
+      --coral-glow: #f97316;
+      --gray-muted: #64748b;
+      --card-radius: 18px;
+      --shadow-subtle: 0 12px 28px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
+      --shadow-hover: 0 24px 38px -12px rgba(15, 157, 154, 0.12), 0 6px 12px -4px rgba(0, 0, 0, 0.05);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .display-5,
+    .display-6 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    /* buttons */
+    .btn-accent {
+      background: linear-gradient(145deg, var(--teal-accent), #0b8f8b);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 60px;
+      box-shadow: 0 8px 16px -6px rgba(15, 157, 154, 0.25);
+      transition: all 0.25s ease;
+    }
+
+    .btn-accent:hover {
+      background: linear-gradient(145deg, #0b8f8b, #097a77);
+      box-shadow: 0 12px 24px -8px rgba(15, 157, 154, 0.4);
+      transform: translateY(-2px);
+      color: white;
+    }
+
+    .btn-outline-navy {
+      border: 2px solid var(--navy-deep);
+      color: var(--navy-deep);
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 60px;
+      background: transparent;
+      transition: 0.25s;
+    }
+
+    .btn-outline-navy:hover {
+      background: var(--navy-deep);
+      color: white;
+      border-color: var(--navy-deep);
+      transform: translateY(-2px);
+    }
+
+    /* stats card style */
+    .stat-card {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 2rem 1rem;
+      box-shadow: var(--shadow-subtle);
+      transition: transform 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .stat-icon {
+      font-size: 2.8rem;
+      color: var(--teal-accent);
+      margin-bottom: 1rem;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      color: var(--gray-muted);
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* feature card */
+    .feature-card {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 2rem 1.5rem;
+      height: 100%;
+      box-shadow: var(--shadow-subtle);
+      border: 1px solid #f1f5f9;
+      transition: all 0.25s;
+    }
+
+    .feature-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-5px);
+      border-color: rgba(15, 157, 154, 0.2);
+    }
+
+    .feature-icon {
+      background: rgba(15, 157, 154, 0.08);
+      width: 60px;
+      height: 60px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .feature-icon i {
+      font-size: 2.2rem;
+      color: var(--teal-accent);
+    }
+
+    /* trust badge / security */
+    .trust-badge-pill {
+      background: white;
+      border-radius: 100px;
+      padding: 8px 20px;
+      box-shadow: var(--shadow-subtle);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      border: 1px solid #e9eef4;
+    }
+
+    .payment-logo {
+      filter: grayscale(1);
+      opacity: 0.8;
+      transition: 0.2s;
+      height: 32px;
+      margin: 0 6px;
+    }
+
+    .payment-logo:hover {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+
+    /* testimonial card */
+    .testimonial-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem 2rem 1.8rem;
+      box-shadow: var(--shadow-subtle);
+      height: 100%;
+      border: 1px solid #f0f4fa;
+    }
+
+    .rating i {
+      color: #fbbf24;
+      margin-right: 3px;
+    }
+
+    /* footer/cta gradient */
+    .cta-section {
+      background: radial-gradient(circle at 10% 30%, #112b45, var(--navy-deep));
+      color: white;
+      border-radius: 40px 40px 0 0;
+      margin-top: 2rem;
+    }
+
+    /* animations + counters */
+    [data-aos] {
+      transition-timing-function: cubic-bezier(0.25, 0.1, 0.15, 1);
+    }
+
+    /* responsive tweaks */
+    @media (max-width: 768px) {
+      .section-padding {
+        padding: 60px 0;
+      }
+
+      .stat-number {
+        font-size: 2.2rem;
+      }
+
+      .display-5 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* badge for verified */
+    .verified-badge {
+      background: #e6f7f6;
+      color: #0b6b68;
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 40px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO / HEADER Section -->
+  <header class="section-padding" style="padding-bottom: 0;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7" data-aos="fade-up" data-aos-duration="800">
+          <!-- Platform name placeholder -->
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <i class="bi bi-grid-3x3-gap-fill fs-1" style="color: var(--teal-accent);"></i>
+            <span class="fw-bold fs-3" style="color: var(--navy-deep);">DevMart<span
+                style="color: var(--teal-accent);">.</span></span>
+          </div>
+
+          <h1 class="display-5 fw-bold mb-4" style="color: var(--navy-deep);">
+            Where great code <br><span style="color: var(--teal-accent);">finds its purpose.</span>
+          </h1>
+
+          <p class="lead mb-4" style="color: #334155; max-width: 650px;">
+            DevMart began when two freelance developers realized they were rebuilding the same authentication modules
+            and dashboard templates for every client.
+            We built a marketplace to stop that waste. Now, thousands of developers share and sell production‑ready
+            source code, while teams launch faster.
+          </p>
+
+          <div class="bg-light p-4 rounded-4 mb-4 border-0" style="background: #f0f7fa !important;">
+            <p class="fw-semibold mb-2 fs-5" style="color: var(--navy-deep);">
+              <i class="bi bi-quote me-1" style="color: var(--teal-accent);"></i>
+              We help developers monetize their work and help buyers build faster.
+            </p>
+            <p class="mb-0 text-secondary">— Our mission, every single day.</p>
+          </div>
+
+          <p class="mb-4"><strong>Problem we solve:</strong> Developers waste 30% of their time rebuilding common
+            solutions. Our marketplace curates battle‑tested components, templates, and plugins — ready to integrate.
+          </p>
+          <p><strong>Vision:</strong> An ecosystem where every developer’s reusable code becomes a revenue stream, and
+            every builder can stand on the shoulders of giants.</p>
+
+          <div class="mt-5 d-flex flex-wrap gap-3">
+            <a href="#" class="btn btn-accent btn-lg"><i class="bi bi-box-seam me-2"></i>Browse Projects</a>
+            <a href="#" class="btn btn-outline-navy btn-lg"><i class="bi bi-shop me-2"></i>Start Selling</a>
+          </div>
+        </div>
+
+        <div class="col-lg-5 text-center" data-aos="fade-left" data-aos-delay="100">
+          <!-- abstract illustration / placeholder (alt provided) -->
+          <img src="https://placehold.co/600x500/0b1e33/0f9d9a?text=Dev+Marketplace+Ecosystem"
+            alt="Developer marketplace ecosystem illustration: code blocks and connections"
+            class="img-fluid rounded-4 shadow-lg"
+            style="max-width: 100%; height: auto; border: 1px solid rgba(255,255,255,0.3);">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TRUST-BUILDING STATS SECTION (animated counters) -->
+  <section class="section-padding">
+    <div class="container" data-aos="fade-up" data-aos-duration="800">
+      <div class="text-center mb-5">
+        <span class="badge bg-teal px-4 py-2 rounded-pill mb-3"
+          style="background: #d5f5f3; color: #0b5e5b; font-weight: 600;">Trusted by thousands</span>
+        <h2 class="display-6 fw-bold" style="color: var(--navy-deep);">The numbers speak for themselves</h2>
+      </div>
+
+      <div class="row g-4">
+        <!-- Stat 1: Projects available -->
+        <div class="col-sm-6 col-lg-3">
+          <div class="stat-card text-center">
+            <div class="stat-icon"><i class="bi bi-code-square"></i></div>
+            <div class="stat-number"><span class="counter" data-target="12450">0</span>+</div>
+            <div class="stat-label">Projects available</div>
+          </div>
+        </div>
+        <!-- Stat 2: Developers / buyers (combined) -->
+        <div class="col-sm-6 col-lg-3">
+          <div class="stat-card text-center">
+            <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
+            <div class="stat-number"><span class="counter" data-target="28400">0</span>+</div>
+            <div class="stat-label">Developers & buyers</div>
+          </div>
+        </div>
+        <!-- Stat 3: Technologies supported -->
+        <div class="col-sm-6 col-lg-3">
+          <div class="stat-card text-center">
+            <div class="stat-icon"><i class="bi bi-layers"></i></div>
+            <div class="stat-number"><span class="counter" data-target="48">0</span></div>
+            <div class="stat-label">Technologies (React, Node, PHP, Python...)</div>
+          </div>
+        </div>
+        <!-- Stat 4: total downloads / happy customers -->
+        <div class="col-sm-6 col-lg-3">
+          <div class="stat-card text-center">
+            <div class="stat-icon"><i class="bi bi-cloud-download"></i></div>
+            <div class="stat-number"><span class="counter" data-target="198000">0</span>+</div>
+            <div class="stat-label">Downloads / happy customers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US SECTION (4‑column) -->
+  <section class="section-padding bg-light" style="background: #f8fbfe !important;">
+    <div class="container" data-aos="fade-up">
+      <div class="text-center mb-5">
+        <h2 class="display-6 fw-bold" style="color: var(--navy-deep);">Why choose DevMart</h2>
+        <p class="text-secondary fs-5">Everything you need to buy or sell with confidence.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- 1. Curated quality -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-check2-circle"></i></div>
+            <h4 class="fw-bold mb-2">Curated quality</h4>
+            <p class="text-secondary">Every project is manually reviewed for code standards, documentation, and
+              security. No more “spaghetti code”.</p>
+          </div>
+        </div>
+        <!-- 2. Instant delivery -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-lightning-charge"></i></div>
+            <h4 class="fw-bold mb-2">Secure instant delivery</h4>
+            <p class="text-secondary">Get your source code immediately after purchase. Encrypted download links and
+              automated license generation.</p>
+          </div>
+        </div>
+        <!-- 3. Multiple payment options -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-credit-card-2-front"></i></div>
+            <h4 class="fw-bold mb-2">Flexible payments</h4>
+            <p class="text-secondary">Stripe, PayPal, Razorpay, and more. Local payment methods for India & global
+              cards.</p>
+          </div>
+        </div>
+        <!-- 4. Active developer community -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-chat-dots"></i></div>
+            <h4 class="fw-bold mb-2">Active community</h4>
+            <p class="text-secondary">Join discussions, request features, and collaborate with 28k+ developers on our
+              Discord & forums.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST & SECURITY SECTION (badges, SSL, guarantee) -->
+  <section class="section-padding">
+    <div class="container" data-aos="fade-up">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="badge bg-teal mb-3 px-3 py-2" style="background: #d5f5f3; color:#0b5e5b;"><i
+              class="bi bi-shield-shaded me-1"></i> Enterprise‑grade security</span>
+          <h2 class="display-6 fw-bold mb-4" style="color: var(--navy-deep);">Your trust is our foundation</h2>
+
+          <div class="d-flex flex-wrap gap-3 mb-5">
+            <div class="trust-badge-pill"><i class="bi bi-shield-lock-fill fs-4" style="color: #0f9d9a;"></i> SSL
+              Secured (256‑bit)</div>
+            <div class="trust-badge-pill"><i class="bi bi-arrow-repeat fs-4" style="color: #0f9d9a;"></i> 14‑day
+              money‑back guarantee</div>
+            <div class="trust-badge-pill"><i class="bi bi-patch-check-fill fs-4" style="color: #0f9d9a;"></i> Verified
+              seller badges</div>
+          </div>
+
+          <p class="mb-4"><i class="bi bi-lock-fill me-2" style="color: #0f9d9a;"></i>All transactions are encrypted.
+            Sellers undergo identity verification to earn the “Verified Developer” badge.</p>
+
+          <!-- Verified project badges preview -->
+          <div class="d-flex align-items-center gap-3 flex-wrap">
+            <span class="verified-badge"><i class="bi bi-check-lg"></i> Verified Seller</span>
+            <span class="verified-badge"><i class="bi bi-star-fill text-warning me-1"></i> Top Rated</span>
+            <span class="verified-badge"><i class="bi bi-shield-check"></i> Code Reviewed</span>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="p-4 bg-white rounded-4 shadow-sm border" style="border-color: #eef2f6 !important;">
+            <h5 class="fw-bold mb-4"><i class="bi bi-credit-card me-2" style="color: var(--teal-accent);"></i>Payment
+              security & partners</h5>
+            <div class="d-flex flex-wrap align-items-center gap-4">
+              <!-- Payment logos with alt descriptions -->
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@develop/icons/stripe.svg"
+                alt="Stripe payments" class="payment-logo" style="height: 30px; width: auto;">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@develop/icons/paypal.svg" alt="PayPal"
+                class="payment-logo" style="height: 28px;">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@develop/icons/razorpay.svg" alt="Razorpay"
+                class="payment-logo" style="height: 28px;">
+              <span class="ms-2"><i class="bi bi-shield-check fs-4 text-teal"></i> PCI DSS compliant</span>
+            </div>
+            <hr class="my-4">
+            <div class="d-flex gap-3">
+              <div><i class="bi bi-trophy-fill fs-2" style="color: #fbbf24;"></i></div>
+              <div><strong>Money‑back guarantee</strong><br>If the item doesn’t work as described, we’ll refund you
+                within 14 days. No questions asked.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS (3 cards in grid) -->
+  <section class="section-padding bg-light" style="background: #f8fbfe !important;">
+    <div class="container" data-aos="fade-up">
+      <div class="text-center mb-5">
+        <h2 class="display-6 fw-bold" style="color: var(--navy-deep);">Trusted by developers & teams</h2>
+        <p class="text-secondary">See what our community says.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Testimonial 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <div class="rating mb-3">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="fs-5 fw-light">"Saved me 3 weeks of work. The React dashboard kit was exactly what I needed —
+              clean, well documented, and easy to extend."</p>
+            <div class="d-flex align-items-center mt-4">
+              <div class="flex-shrink-0"><i class="bi bi-person-circle fs-1" style="color: #1e293b;"></i></div>
+              <div class="ms-3">
+                <h6 class="fw-bold mb-0">Priya Sharma</h6>
+                <span class="text-secondary">Freelance Developer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <div class="rating mb-3">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="fs-5 fw-light">"As a startup founder, DevMart gave us production‑ready code for our auth and
+              payments. Launched our MVP in 10 days."</p>
+            <div class="d-flex align-items-center mt-4">
+              <div class="flex-shrink-0"><i class="bi bi-person-circle fs-1" style="color: #1e293b;"></i></div>
+              <div class="ms-3">
+                <h6 class="fw-bold mb-0">Michael Chen</h6>
+                <span class="text-secondary">CTO, SwiftStack</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <div class="rating mb-3">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="fs-5 fw-light">"I've earned over $12k selling my PHP packages here. The review process keeps
+              quality high, and buyers trust the platform."</p>
+            <div class="d-flex align-items-center mt-4">
+              <div class="flex-shrink-0"><i class="bi bi-person-circle fs-1" style="color: #1e293b;"></i></div>
+              <div class="ms-3">
+                <h6 class="fw-bold mb-0">Carlos Mendez</h6>
+                <span class="text-secondary">Full‑stack Developer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- optional carousel fallback note: we use grid for clarity, meets requirement -->
+      <p class="text-center mt-4 text-muted"><i class="bi bi-arrow-left-right"></i> 2,400+ verified reviews • average
+        4.9 ★</p>
+    </div>
+  </section>
+
+  <!-- CONTACT / CTA SECTION with social & buttons -->
+  <section class="cta-section text-white py-5">
+    <div class="container py-4" data-aos="fade-up">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-7">
+          <h2 class="display-6 fw-bold mb-3">Ready to accelerate your development?</h2>
+          <p class="fs-5 opacity-75 mb-4">Join thousands of developers and businesses building smarter.</p>
+
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <a href="#" class="btn btn-light btn-lg px-4 py-3 rounded-4 fw-semibold" style="color: var(--navy-deep);">
+              <i class="bi bi-box-seam me-2"></i>Browse Projects
+            </a>
+            <a href="#" class="btn btn-outline-light btn-lg px-4 py-3 rounded-4 fw-semibold">
+              <i class="bi bi-shop me-2"></i>Start Selling
+            </a>
+          </div>
+
+          <!-- support email + social -->
+          <div class="d-flex align-items-center gap-4 flex-wrap">
+            <a href="mailto:support@devmart.example"
+              class="text-white text-decoration-none d-flex align-items-center gap-2">
+              <i class="bi bi-envelope-fill fs-5"></i> support@devmart.example
+            </a>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-white fs-4" aria-label="GitHub"><i class="bi bi-github"></i></a>
+              <a href="#" class="text-white fs-4" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="text-white fs-4" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 text-lg-end">
+          <div class="bg-white bg-opacity-10 p-4 rounded-4 d-inline-block">
+            <p class="mb-2 fw-semibold"><i class="bi bi-headset me-2"></i> 24/7 Support</p>
+            <p class="small opacity-75 mb-0">Average response time: under 3h</p>
+            <hr class="opacity-25">
+            <p class="mb-0"><i class="bi bi-shield-check me-2"></i> Trusted by 28k+ members</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- subtle footer -->
+  <footer class="py-4 text-center text-muted small">
+    <div class="container">
+      © 2026 DevMart — Developer Marketplace. All trademarks property of their owners.
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- Counter animation on scroll -->
+  <script>
+    (function () {
+      "use strict";
+
+      // init AOS
+      AOS.init({ once: true, offset: 80, duration: 700 });
+
+      // Counter animation with Intersection Observer
+      const counters = document.querySelectorAll('.counter');
+      let animated = false;
+
+      function animateCounter(counter) {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 1600; // ms
+        const stepTime = 16;
+        const totalSteps = duration / stepTime;
+        let currentStep = 0;
+        const increment = target / totalSteps;
+
+        const update = () => {
+          currentStep++;
+          const val = Math.min(Math.round(increment * currentStep), target);
+          counter.innerText = val.toLocaleString();
+          if (currentStep < totalSteps) {
+            requestAnimationFrame(update);
+          } else {
+            counter.innerText = target.toLocaleString();
+          }
+        };
+        requestAnimationFrame(update);
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !animated) {
+            counters.forEach(c => animateCounter(c));
+            animated = true;
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+
+      const statsSection = document.querySelector('.stat-card')?.closest('.section-padding');
+      if (statsSection) observer.observe(statsSection);
+
+      // Fallback: if already visible on load
+      if (counters.length && window.scrollY + window.innerHeight > (counters[0].getBoundingClientRect().top + 200)) {
+        if (!animated) {
+          counters.forEach(c => animateCounter(c));
+          animated = true;
+        }
+      }
+    })();
+  </script>
+
+  <!-- small custom for trust icons (alt texts were provided in attributes) -->
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>About | ProjectMarket — Student Academic Projects</title>
+
+  <!-- Bootstrap 5 CSS + Icons + Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      scroll-behavior: smooth;
+    }
+
+    /* CSS Custom Properties (matching prompt) */
+    :root {
+      --primary-dark: #1C3A58;
+      --primary: #2A4E77;
+      --primary-light: #4B7A9C;
+      --accent: #E67E22;
+      --accent-light: #F39C12;
+      --accent-hover: #E05A3A;
+      --text-dark: #1E2F3E;
+      --text-muted: #5A6E7C;
+      --text-light: #94A3B8;
+      --bg-white: #FFFFFF;
+      --bg-light: #F8FAFE;
+      --gray-bg: #F0F4F8;
+      --card-white: #FFFFFF;
+      --border-light: #E4E9F0;
+      --border-focus: #CBD5E1;
+      --success: #2E7D64;
+      --warning: #F59E0B;
+      --error: #EF4444;
+      --footer-bg: #0F172A;
+      --footer-input: #1E293B;
+      --footer-divider: #1E293B;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08);
+    }
+
+    /* custom global styles */
+    h1,
+    h2,
+    h3,
+    h4,
+    .fw-semibold {
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--primary-dark);
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    .text-accent {
+      color: var(--accent);
+    }
+
+    .btn-outline-accent {
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      transition: all 0.25s ease;
+    }
+
+    .btn-outline-accent:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* card hover effect */
+    .feature-card,
+    .testimonial-card {
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+      border: none;
+      border-radius: 1.25rem;
+      background: var(--card-white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-card:hover,
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.12);
+    }
+
+    .stat-card {
+      transition: all 0.2s ease;
+      border-radius: 1.5rem;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+    }
+
+    .stat-card:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .icon-circle {
+      width: 52px;
+      height: 52px;
+      background: rgba(42, 78, 119, 0.1);
+      border-radius: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+
+    .rating-star {
+      color: #f5b042;
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: var(--accent-light) !important;
+    }
+
+    .bg-footer-dark {
+      background-color: var(--footer-bg);
+    }
+
+    .img-cover-soft {
+      border-radius: 1.5rem;
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+      box-shadow: var(--shadow-lg);
+    }
+
+    @media (max-width: 768px) {
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========================== HERO SECTION (simple modern) ========================== -->
+  <section class="pt-5 pb-4 bg-white border-bottom"
+    style="background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFE 100%);">
+    <div class="container py-3 py-md-4">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8 mx-auto text-center">
+          <!-- subtle badge -->
+          <span class="badge bg-light text-primary px-3 py-2 rounded-pill mb-3 border" style="background:#eef2f9;"><i
+              class="bi bi-mortarboard-fill me-1 text-accent"></i> trusted by 1500+ students</span>
+          <h1 class="display-5 fw-bold" style="color: var(--primary-dark);">Empowering students with <span
+              class="text-accent">ready‑to‑run</span> academic projects</h1>
+          <p class="lead text-muted mt-3 mx-auto" style="max-width: 700px;">High-quality, tested project solutions
+            across all major technologies. Save time, boost grades, and build your portfolio with confidence.</p>
+          <div class="mt-4">
+            <a href="#" class="btn btn-primary px-4 py-2 me-2"
+              style="background: var(--primary); border-color: var(--primary);">Browse Projects <i
+                class="bi bi-arrow-right-short"></i></a>
+            <a href="#" class="btn btn-outline-accent px-4 py-2">How it works</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 2. ABOUT DESCRIPTION SECTION (Text + Image) ========================== -->
+  <section class="py-5 py-md-6 bg-white">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <!-- Left side: text -->
+        <div class="col-lg-6 order-2 order-lg-1">
+          <span class="text-accent fw-semibold mb-2 d-block"><i class="bi bi-chat-dots-fill me-1"></i> Who we are</span>
+          <h2 class="section-title mb-3">Your launchpad for academic excellence</h2>
+          <p class="text-muted fs-5">ProjectMarket is more than a marketplace — we’re a student-first ecosystem. Every
+            academic project is rigorously tested, fully documented, and built to run seamlessly. Our mission is to
+            eliminate coding roadblocks, so you can focus on learning and innovation.</p>
+          <p class="mt-3 text-secondary">From final-year engineering capstones to diploma assignments, we provide
+            verified solutions in <strong>Python, Java, Web Dev, AI/ML, and Mobile apps</strong>. Join thousands of
+            students who have elevated their projects with our premium, instant-delivery system.</p>
+          <div class="d-flex gap-3 mt-4 flex-wrap">
+            <div><i class="bi bi-check-circle-fill text-accent"></i> <span class="ms-1">100% working code</span></div>
+            <div><i class="bi bi-check-circle-fill text-accent"></i> <span class="ms-1">Free support &
+                documentation</span></div>
+            <div><i class="bi bi-check-circle-fill text-accent"></i> <span class="ms-1">Secure checkout</span></div>
+          </div>
+        </div>
+        <!-- Right side: placeholder image (student working on laptop) -->
+        <div class="col-lg-6 order-1 order-lg-2">
+          <div class="position-relative">
+            <img src="https://placehold.co/700x500/2A4E77/FFFFFF?text=Student+Working+on+Laptop+%7C+Modern+Study+Space"
+              alt="Student working on laptop" class="img-fluid img-cover-soft shadow">
+            <div class="position-absolute bottom-0 start-0 bg-white rounded-3 px-3 py-2 m-3 shadow-sm"
+              style="border-left: 4px solid var(--accent);">
+              <i class="bi bi-star-fill text-warning"></i> <span class="fw-semibold">4.9/5 from 1200+ reviews</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 3. STATISTICS SECTION (4 metrics) ========================== -->
+  <section class="py-5 bg-light" style="background: var(--gray-bg);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title text-center" style="display: inline-block;">Impact in numbers</h2>
+        <p class="text-muted mt-2">Our community is growing every day — real solutions for real students</p>
+      </div>
+      <div class="row g-4">
+        <!-- stat 1 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="stat-card p-4 text-center h-100">
+            <div class="icon-circle mx-auto mb-3"><i class="bi bi-folder-symlink fs-2"></i></div>
+            <div class="stat-number" id="projectsCount">500+</div>
+            <p class="fw-semibold mt-2 mb-0 text-dark">Available Projects</p>
+            <small class="text-muted">Verified, run-ready codebases</small>
+          </div>
+        </div>
+        <!-- stat 2 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="stat-card p-4 text-center h-100">
+            <div class="icon-circle mx-auto mb-3"><i class="bi bi-people fs-2"></i></div>
+            <div class="stat-number">2,000+</div>
+            <p class="fw-semibold mt-2 mb-0 text-dark">Active Buyers</p>
+            <small class="text-muted">Trusted academic community</small>
+          </div>
+        </div>
+        <!-- stat 3 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="stat-card p-4 text-center h-100">
+            <div class="icon-circle mx-auto mb-3"><i class="bi bi-stack fs-2"></i></div>
+            <div class="stat-number">50+</div>
+            <p class="fw-semibold mt-2 mb-0 text-dark">Tech Stacks</p>
+            <small class="text-muted">Python, Java, React, Node, Flutter...</small>
+          </div>
+        </div>
+        <!-- stat 4 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="stat-card p-4 text-center h-100">
+            <div class="icon-circle mx-auto mb-3"><i class="bi bi-emoji-smile fs-2"></i></div>
+            <div class="stat-number">1,500+</div>
+            <p class="fw-semibold mt-2 mb-0 text-dark">Happy Students</p>
+            <small class="text-muted">Grades & skills boosted</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 4. WHY CHOOSE US SECTION (2x2 grid / 4 feature cards) ========================== -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title text-center" style="display: inline-block;">Why choose us</h2>
+        <p class="text-muted">Designed with students in mind — quality, speed & support</p>
+      </div>
+      <div class="row g-4">
+        <!-- Card 1: Running & Quality Run Code -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card p-4 h-100">
+            <div class="icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--accent);"><i
+                class="bi bi-play-circle-fill fs-2"></i></div>
+            <h4 class="h5 fw-bold">Running & Quality Run Code</h4>
+            <p class="text-muted mt-2">Every project is tested on real environments. You get error-free, fully
+              executable source code with setup guides.</p>
+            <span class="badge bg-light mt-2 text-primary">✅ Pre-verified</span>
+          </div>
+        </div>
+        <!-- Card 2: Secure Instant Delivery -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card p-4 h-100">
+            <div class="icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--accent);"><i
+                class="bi bi-lock-fill fs-2"></i></div>
+            <h4 class="h5 fw-bold">Secure Instant Delivery</h4>
+            <p class="text-muted mt-2">Encrypted payment + immediate download link after purchase. Your data is
+              protected 24/7.</p>
+            <span class="badge bg-light mt-2 text-primary"><i class="bi bi-shield-check"></i> PCI compliant</span>
+          </div>
+        </div>
+        <!-- Card 3: Multiple Technologies Integration -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card p-4 h-100">
+            <div class="icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--accent);"><i
+                class="bi bi-diagram-3-fill fs-2"></i></div>
+            <h4 class="h5 fw-bold">Multiple Technologies</h4>
+            <p class="text-muted mt-2">Python (Django/Flask), Java Spring, React, Angular, Android, Flutter, and AI/ML
+              projects.</p>
+            <span class="badge bg-light mt-2 text-primary">50+ stacks</span>
+          </div>
+        </div>
+        <!-- Card 4: 24/7 Service Available -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card p-4 h-100">
+            <div class="icon-circle mb-3" style="background: rgba(230,126,34,0.12); color: var(--accent);"><i
+                class="bi bi-headset fs-2"></i></div>
+            <h4 class="h5 fw-bold">24/7 Service Available</h4>
+            <p class="text-muted mt-2">Round-the-clock chat & email support. Our academic experts resolve queries within
+              hours.</p>
+            <span class="badge bg-light mt-2 text-primary">💬 Real humans</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 5. TESTIMONIALS SECTION (3 student reviews) ========================== -->
+  <section class="py-5 bg-light" style="background: var(--bg-light);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title text-center" style="display: inline-block;">Student love</h2>
+        <p class="text-muted">Hear from students who transformed their academic journey</p>
+      </div>
+      <div class="row g-4">
+        <!-- Testimonial 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card p-4 h-100">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="rating-star">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <span class="text-muted small">5.0</span>
+            </div>
+            <p class="fs-6 text-secondary">“I bought a Django e-commerce project for my final year, and it worked right
+              out of the box. The documentation was so clear that I could customize the frontend easily. Highly
+              recommended!”</p>
+            <hr class="my-3">
+            <div class="d-flex align-items-center">
+              <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                style="width: 44px; height:44px;"><i class="bi bi-person-circle fs-3 text-primary"></i></div>
+              <div class="ms-3">
+                <h6 class="mb-0 fw-bold">Priya Sharma</h6>
+                <small class="text-muted">B.Tech CSE, VIT University</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card p-4 h-100">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="rating-star">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                  class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+              </div>
+              <span class="text-muted small">4.8</span>
+            </div>
+            <p class="fs-6 text-secondary">“The instant delivery saved my submission deadline. I needed a Java Spring
+              Boot project with MySQL, and it worked perfectly. The 24/7 support team helped me with deployment. Great
+              service!”</p>
+            <hr class="my-3">
+            <div class="d-flex align-items-center">
+              <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                style="width: 44px; height:44px;"><i class="bi bi-person-circle fs-3 text-primary"></i></div>
+              <div class="ms-3">
+                <h6 class="mb-0 fw-bold">Rahul Mehta</h6>
+                <small class="text-muted">MCA, Pune University</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card p-4 h-100">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="rating-star">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <span class="text-muted small">5.0</span>
+            </div>
+            <p class="fs-6 text-secondary">“As an AI student, I needed a computer vision project (YOLO) with Flask
+              integration. ProjectMarket provided a fully functional code, and the setup guide was a lifesaver. Got an
+              A+ grade!”</p>
+            <hr class="my-3">
+            <div class="d-flex align-items-center">
+              <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                style="width: 44px; height:44px;"><i class="bi bi-person-circle fs-3 text-primary"></i></div>
+              <div class="ms-3">
+                <h6 class="mb-0 fw-bold">Neha Verma</h6>
+                <small class="text-muted">M.Sc Data Science, Christ University</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="#" class="btn btn-outline-accent rounded-pill px-4"><i class="bi bi-chat-quote me-2"></i>Read more
+          stories</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== FOOTER / SIMPLE CALL TO ACTION ========================== -->
+  <footer class="bg-footer-dark text-white pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4 justify-content-between">
+        <div class="col-md-5">
+          <h4 class="fw-bold mb-2" style="letter-spacing:-0.5px"><i
+              class="bi bi-briefcase-fill me-2 text-accent"></i>ProjectMarket</h4>
+          <p class="text-white-50 small">Bridging the gap between academic concepts and industry-ready projects. Join
+            thousands of successful students.</p>
+          <div class="d-flex gap-3 mt-3">
+            <a href="#" class="text-white-50"><i class="bi bi-twitter fs-5"></i></a>
+            <a href="#" class="text-white-50"><i class="bi bi-linkedin fs-5"></i></a>
+            <a href="#" class="text-white-50"><i class="bi bi-instagram fs-5"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <h6 class="fw-bold text-uppercase small mb-3">Resources</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Browse Projects</a></li>
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Tech Stacks</a></li>
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Support Center</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6 class="fw-bold text-uppercase small mb-3">Get in touch</h6>
+          <p class="text-white-50 small mb-1"><i class="bi bi-envelope me-2"></i>hello@projectmarket.com</p>
+          <p class="text-white-50 small"><i class="bi bi-chat-dots me-2"></i>24/7 live chat</p>
+        </div>
+      </div>
+      <hr class="my-4 opacity-25">
+      <div class="text-center text-white-50 small">
+        &copy; 2025 ProjectMarket — Empowering student innovation. All projects are for educational & reference use.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle (for potential interactivity, offcanvas etc.) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Optional subtle animation for stat counters (demo) - simple, numbers stay as static but we add dynamic counting effect for better engagement -->
+  <script>
+    // A small script to count-up stats when they come into view (purely aesthetic)
+    // Not required but adds modern feeling. All stat numbers are already displayed in HTML.
+    (function () {
+      const statNumbers = document.querySelectorAll('.stat-number');
+      // store original text content
+      const updateNumber = (el, targetNum) => {
+        let current = 0;
+        const increment = Math.ceil(targetNum / 40);
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= targetNum) {
+            el.innerText = targetNum.toLocaleString() + (el.innerText.includes('+') ? '+' : '');
+            clearInterval(timer);
+          } else {
+            el.innerText = current + (el.innerText.includes('+') ? '+' : '');
+          }
+        }, 20);
+      };
+      // Parse numbers from text (500+, 2000+, 50+, 1500+)
+      const statsData = [
+        { elem: statNumbers[0], raw: 500, suffix: '+' },
+        { elem: statNumbers[1], raw: 2000, suffix: '+' },
+        { elem: statNumbers[2], raw: 50, suffix: '+' },
+        { elem: statNumbers[3], raw: 1500, suffix: '+' }
+      ];
+      // Intersection Observer to trigger count-up only once
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const targetElem = entry.target;
+            const data = statsData.find(s => s.elem === targetElem);
+            if (data && !targetElem.getAttribute('data-counted')) {
+              targetElem.setAttribute('data-counted', 'true');
+              let targetNumber = data.raw;
+              let currentNum = 0;
+              const step = Math.ceil(targetNumber / 45);
+              const interval = setInterval(() => {
+                currentNum += step;
+                if (currentNum >= targetNumber) {
+                  targetElem.innerText = targetNumber.toLocaleString() + data.suffix;
+                  clearInterval(interval);
+                } else {
+                  targetElem.innerText = currentNum + data.suffix;
+                }
+              }, 20);
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+      statsData.forEach(stat => {
+        if (stat.elem) observer.observe(stat.elem);
+      });
+      // Fallback: if observer not needed, still ensure format
+      statsData.forEach(stat => {
+        if (stat.elem && !stat.elem.getAttribute('data-init')) {
+          stat.elem.setAttribute('data-init', 'true');
+          stat.elem.innerText = stat.raw.toLocaleString() + stat.suffix;
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

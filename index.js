@@ -23,7 +23,7 @@ app.use((err, req, res, next) => {
   console.error("Route:", req.method, req.originalUrl);
   console.error("Message:", err.message);
   console.error("Stack:", err.stack);
-  res.status(err.status || 500).render("500");
+  res.status(500).render("500");
 });
 
 app.listen(3000, () => {
